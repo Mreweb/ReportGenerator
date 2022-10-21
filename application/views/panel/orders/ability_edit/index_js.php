@@ -1,53 +1,18 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#editAbility").click(function () {
-            $inputAbilityId           = $.trim($("#inputAbilityId").val());
-            $inputAbilityTitle      = $.trim($("#inputAbilityTitle").val());
-            $inputLow               = $.trim($("#inputLow").val());
-            $inputHigh              = $.trim($("#inputHigh").val());
-            $inputMin               = $.trim($("#inputMin").val());
-            $inputLowEditRange      = $.trim($("#inputLowEditRange").val());
-            $inputHighEditRange     = $.trim($("#inputHighEditRange").val());
-            $inputRandType          = $.trim($("#inputRandType").val());
-
-            if(parseInt($inputLow) >= parseInt($inputHigh)){
-                notify('کمترین نمره باید از بیشترین نمره کوچکتر باشد', 'red');
-                return false;
-            }
-
-            if(parseInt($inputMin) > parseInt($inputHigh)){
-                notify('حداقل نمره باید عددی بین بیشترین نمره و کمترین نمره باشد', 'red');
-                return false;
-            }
-            if(parseInt($inputMin) <= parseInt($inputLow)){
-                notify('حداقل نمره باید عددی بین بیشترین نمره و کمترین نمره باشد', 'red');
-                return false;
-            }
-
-
-            $inpuHighLowDistance = parseInt($inputHigh) - parseInt($inputLow);
-            if(parseInt($inputHighEditRange) > parseInt($inpuHighLowDistance)){
-                notify('حداکثر بازه تغییر باید کوچکتر از '+$inpuHighLowDistance+' باشد', 'red');
-                return false;
-            }
-            if(parseInt($inputLowEditRange) < (-1*parseInt($inpuHighLowDistance))){
-                notify('حداقل بازه تغییر باید بزرگتراز '+-1*$inpuHighLowDistance+' باشد', 'red');
-                return false;
-            }
+        $("#edit").click(function () {
+            $inputAreaId           = $.trim($("#inputAreaId").val());
+            $inputAreaTitle            = $.trim($("#inputAreaTitle").val());
+            $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
             toggleLoader();
             $sendData = {
-                'inputAbilityId': $inputAbilityId,
-                'inputAbilityTitle': $inputAbilityTitle,
-                'inputLow': $inputLow,
-                'inputHigh': $inputHigh,
-                'inputMin': $inputMin,
-                'inputLowEditRange': $inputLowEditRange,
-                'inputHighEditRange': $inputHighEditRange,
-                'inputRandType': $inputRandType
+                'inputAreaId': $inputAreaId,
+                'inputAreaTitle': $inputAreaTitle,
+                'inputAreaDataType': $inputAreaDataType
             }
             $.ajax({
                 type: 'post',
-                url: base_url + 'Orders/doAbilityEdit',
+                url: base_url + 'Orders/doEditArea',
                 data: $sendData,
                 success: function (data) {
                     toggleLoader();

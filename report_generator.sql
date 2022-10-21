@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 21, 2022 at 01:16 PM
+-- Generation Time: Oct 21, 2022 at 08:23 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.9
 
@@ -483,44 +483,42 @@ CREATE TABLE IF NOT EXISTS `foundation_order` (
   `CreateDateTime` int(11) NOT NULL,
   PRIMARY KEY (`OrderId`),
   KEY `FoundationId` (`FoundationId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='سفارش که برای مشتری توسط موسسه ارزیابی تعریف میگردد';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='سفارش که برای مشتری توسط موسسه ارزیابی تعریف میگردد';
 
 --
 -- Dumping data for table `foundation_order`
 --
 
 INSERT INTO `foundation_order` (`OrderId`, `OrderTitle`, `FoundationId`, `IsActive`, `CreateDateTime`) VALUES
-(2, 'شفارش شماره 4', 2, 1, 1621678655),
-(3, 'شفارش شماره 3', 3, 1, 1621678675),
 (4, 'شفارش شماره 2', 3, 1, 1652597391),
-(5, 'سفارش شماره 1', 3, 1, 1653473289);
+(5, 'سفارش شماره 1', 3, 1, 1653473289),
+(6, 'دوره شماره 110', 2, 1, 1666382160);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foundation_order_model`
+-- Table structure for table `foundation_order_area`
 --
 
-DROP TABLE IF EXISTS `foundation_order_model`;
-CREATE TABLE IF NOT EXISTS `foundation_order_model` (
-  `ModelId` int(11) NOT NULL AUTO_INCREMENT,
-  `ModelTitle` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `foundation_order_area`;
+CREATE TABLE IF NOT EXISTS `foundation_order_area` (
+  `AreaId` int(11) NOT NULL AUTO_INCREMENT,
+  `AreaTitle` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `AreaDataType` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Number',
   `OrderId` int(11) NOT NULL,
   `CreateDateTime` int(11) NOT NULL,
-  PRIMARY KEY (`ModelId`),
+  PRIMARY KEY (`AreaId`),
   KEY `OrderId` (`OrderId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='مدل ارزیابی که توسط مدیر کانون برای هر سفارش ثبت میگردد. هر سفارش یک مدل بیشتر ندارد';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `foundation_order_model`
+-- Dumping data for table `foundation_order_area`
 --
 
-INSERT INTO `foundation_order_model` (`ModelId`, `ModelTitle`, `OrderId`, `CreateDateTime`) VALUES
-(1, 'مدل مرحله غیر متمرکز', 1, 1618658842),
-(2, 'مدیران میانی', 2, 1621663471),
-(3, 'مدیران پایه', 3, 1621669660),
-(4, 'پایه-میانی-ارشد', 4, 1652599282),
-(5, 'پایه-میانی-ارشد', 5, 1653473087);
+INSERT INTO `foundation_order_area` (`AreaId`, `AreaTitle`, `AreaDataType`, `OrderId`, `CreateDateTime`) VALUES
+(6, 'حوزه رغبت', 'Number', 6, 1666383045),
+(8, 'حوزه هوش', 'String', 6, 1666383769),
+(9, 'حوزه لدت', 'Number', 6, 1666383091);
 
 -- --------------------------------------------------------
 
@@ -536,7 +534,7 @@ CREATE TABLE IF NOT EXISTS `login_records` (
   `IsSuccess` int(11) NOT NULL,
   `CreateDateTime` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`RowId`)
-) ENGINE=InnoDB AUTO_INCREMENT=553 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_records`
@@ -1094,7 +1092,8 @@ INSERT INTO `login_records` (`RowId`, `CreatorPersonId`, `CreatorUserName`, `IsS
 (549, 180, '09123056336', 1, '1657697542'),
 (550, 180, '09123056336', 1, '1657698512'),
 (551, 26, '09125763683', 1, '1657699486'),
-(552, 1, '09120572107', 1, '1666356024');
+(552, 1, '09120572107', 1, '1666356024'),
+(553, 1, '09120572107', 1, '1666381977');
 
 -- --------------------------------------------------------
 
@@ -1184,6 +1183,12 @@ INSERT INTO `state` (`StateId`, `StateName`) VALUES
 --
 ALTER TABLE `foundation_admin`
   ADD CONSTRAINT `FK_FoundationAdminFoundationID` FOREIGN KEY (`FoundationId`) REFERENCES `foundation` (`FoundationId`);
+
+--
+-- Constraints for table `foundation_order`
+--
+ALTER TABLE `foundation_order`
+  ADD CONSTRAINT `FK_OrderFoundationId` FOREIGN KEY (`FoundationId`) REFERENCES `foundation` (`FoundationId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -50,45 +50,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>دسترسی های شما</h2>
-                            </div>
-                            <div class="body">
-                                &nbsp;&nbsp;&nbsp;
-                                <?php if (isAdminRole()) {
-                                    echo '<label class="label label-success">';
-                                    echo "مدیر سیستم";
-                                    echo '</label>';
-                                } ?>
-                                &nbsp;&nbsp;&nbsp;
-                                <?php if (isFoundationRole()) {
-                                    echo '<label class="label label-success">';
-                                    echo "موسسه ارزیابی";
-                                    echo '</label>';
-                                } ?>
-                                &nbsp;&nbsp;&nbsp;
-                                <?php if (isFoundationManagerRole()) {
-                                    echo '<label class="label label-success">';
-                                    echo "مدیر کانون";
-                                    echo '</label>';
-                                } ?>
-                                &nbsp;&nbsp;&nbsp;
-                                <?php if (isFoundationPlanManagerRole()) {
-                                    echo '<label class="label label-success">';
-                                    echo "مدیر برنامه";
-                                    echo '</label>';
-                                } ?>
-                                &nbsp;&nbsp;&nbsp;
-                                <?php if (isFoundationValuerRole()) {
-                                    echo '<label class="label label-danger">';
-                                    echo "ارزیاب";
-                                    echo '</label>';
-                                } ?>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-xs-12">

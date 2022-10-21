@@ -91,5 +91,9 @@ $config['Enum'] = array(
         'PlanManager' => 'PlanManager',
         'Valuer' => 'Valuer',
         'Customer' => 'Customer'
-    )
+    ),
+    'AreaDataType' => array(
+        'Number' => 'عددی',
+        'String' => 'متنی',
+    ),
 );

@@ -3,20 +3,14 @@
         $("#editOrder").click(function () {
             $inputOrderId = $.trim($("#inputOrderId").val());
             $inputOrderTitle = $.trim($("#inputOrderTitle").val());
-            $inputCustomerId = $.trim($("#inputCustomerId").val());
             $inputFoundationId = $.trim($("#inputFoundationId").val());
-            $inputManagerId  = $.trim($("#inputManagerId").val());
             $inputIsActive  = $.trim($("#inputIsActive").val());
-            $inputIsAbilityBase  = $.trim($("#inputIsAbilityBase").val());
             toggleLoader();
             $sendData = {
                 'inputOrderId': $inputOrderId,
                 'inputOrderTitle': $inputOrderTitle,
-                'inputCustomerId': $inputCustomerId,
                 'inputFoundationId': $inputFoundationId,
-                'inputManagerId': $inputManagerId,
-                'inputIsActive': $inputIsActive,
-                'inputIsAbilityBase': $inputIsAbilityBase
+                'inputIsActive': $inputIsActive
             }
             $.ajax({
                 type: 'post',

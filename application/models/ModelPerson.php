@@ -61,17 +61,6 @@ class ModelPerson extends CI_Model{
         return $this->db->get()->result_array();
     }
 
-    public function getPersonRelatedAccountsByPersonId($personId)
-    {
-        $data = array();
-        $data['Admin'] = $this->db->select('*')->from('admin')->where(array('PersonId' => $personId))->get()->result_array();
-        $data['FoundationAdmin'] = $this->db->select('*')->from('foundation_admin')->where(array('PersonId' => $personId))->get()->result_array();
-        $data['FoundationManager'] = $this->db->select('*')->from('foundation_manager')->where(array('PersonId' => $personId))->get()->result_array();
-        $data['FoundationPlanManager'] = $this->db->select('*')->from('foundation_plan_manager')->where(array('PersonId' => $personId))->get()->result_array();
-        $data['FoundationValuer'] = $this->db->select('*')->from('foundation_valuer')->where(array('PersonId' => $personId))->get()->result_array();
-        $data['Customer'] = $this->db->select('*')->from('foundation_customer_admin')->join('foundation_customer', 'foundation_customer_admin.CustomerId = foundation_customer.CustomerId')->where(array('PersonId' => $personId))->get()->result_array();
-        return $data;
-    }
 }
 
 ?>

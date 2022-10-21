@@ -2,17 +2,11 @@
     $(document).ready(function () {
         $("#addOrder").click(function () {
             $inputOrderTitle = $.trim($("#inputOrderTitle").val());
-            $inputCustomerId = $.trim($("#inputCustomerId").val());
             $inputFoundationId = $.trim($("#inputFoundationId").val());
-            $inputManagerId  = $.trim($("#inputManagerId").val());
-            $inputIsAbilityBase  = $.trim($("#inputIsAbilityBase").val());
             toggleLoader();
             $sendData = {
                 'inputOrderTitle': $inputOrderTitle,
-                'inputCustomerId': $inputCustomerId,
                 'inputFoundationId': $inputFoundationId,
-                'inputManagerId': $inputManagerId,
-                'inputIsAbilityBase': $inputIsAbilityBase
             }
             $.ajax({
                 type: 'post',

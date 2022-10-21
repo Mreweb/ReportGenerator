@@ -10,7 +10,6 @@ class ModelAccount extends CI_Model{
             $result = $query->result_array()[0];
             $personId = $result['PersonId'];
             $LoginInfo['PersonInfo'] = $this->ModelPerson->getPersonById($personId)[0];
-            $LoginInfo['PersonRelatedAccounts'] = $this->ModelPerson->getPersonRelatedAccountsByPersonId($personId);
             $LoginInfo['PersonId'] = $result['PersonId'];
             $this->session->set_userdata('IsLogged', TRUE);
             $this->session->set_userdata('LoginInfo', $LoginInfo);

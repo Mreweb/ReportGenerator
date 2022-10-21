@@ -12,9 +12,6 @@ class Home extends CI_Controller {
         $data['loginInfo'] = $this->loginInfo;
         $personId = $this->loginInfo['PersonInfo']['PersonId'];
         $LoginInfo['PersonInfo'] = $this->ModelPerson->getPersonById($personId)[0];
-        $LoginInfo['PersonRelatedAccounts'] = $this->ModelPerson->getPersonRelatedAccountsByPersonId($personId);
-        $this->session->set_userdata('IsLogged', TRUE);
-        $this->session->set_userdata('LoginInfo', $LoginInfo);
 
         $this->load->view('panel/static/header', $data);
         $this->load->view('panel/home/index', $data);

@@ -1,4 +1,3 @@
-<?php $_DIR = base_url('assets/empanel/'); ?>
 <section class="content">
     <div class="container-fluid">
         <div class="row clearfix">
@@ -7,9 +6,9 @@
                     <div class="body">
                         <div class="col-xs-12">
                             <fieldset class="col-xs-12">
-                                <legend>مشخصات سفارش</legend>
+                                <legend>مشخصات دوره</legend>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputOrderTitle">عنوان سفارش</label>
+                                    <label class="required" for="inputOrderTitle">عنوان دوره</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -19,52 +18,15 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputCustomerId">مشتری</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select class="form-control" name="inputCustomerId" id="inputCustomerId">
-                                                <?php foreach ($customers as $customer) { ?>
-                                                    <option value="<?php echo $customer['CustomerId']; ?>">
-                                                        <?php echo $customer['CustomerTitle']; ?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputFoundationId">موسسه ارزیابی</label>
+                                    <label class="required" for="inputFoundationId">سازمان</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <select class="form-control" name="inputFoundationId" id="inputFoundationId">
-                                                <option value="<?php echo $foundation['FoundationId']; ?>">
-                                                    <?php echo $foundation['FoundationTitle']; ?>
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputManagerId">مدیر کانون</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select class="form-control" name="inputManagerId" id="inputManagerId">
-                                                <?php foreach ($managers as $manager) { ?>
-                                                    <option value="<?php echo $manager['ManagerId']; ?>">
-                                                        <?php echo $manager['PersonFirstName']." ".$manager['PersonLastName']; ?>
+                                                <?php foreach ($foundation as $item) { ?>
+                                                    <option value="<?php echo $item['FoundationId']; ?>">
+                                                        <?php echo $item['FoundationTitle']; ?>
                                                     </option>
                                                 <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputIsAbilityBase">نوع سفارش</label>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select class="form-control" name="inputIsAbilityBase" id="inputIsAbilityBase">
-                                                <option value="0">نشانگر محور</option>
-                                                <option value="1">شایستگی محور</option>
                                             </select>
                                         </div>
                                     </div>

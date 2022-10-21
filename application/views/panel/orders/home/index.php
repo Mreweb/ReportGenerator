@@ -6,7 +6,7 @@
                     <div class="col-xs-12 card info-box p-0">
                         <div class="body">
                             <div class="col-xs-12">
-                                <label for="inputOrderTitle">عنوان سفارش:</label>
+                                <label for="inputOrderTitle">عنوان دوره:</label>
                                 <input type="text" class="input-search" id="inputOrderTitle" />
                                 <button type="button" id="searchButton" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left btn-search">
                                     <i class="material-icons">search</i>
@@ -21,8 +21,8 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="fit">شناسه سفارش</th>
-                                    <th>عنوان سفارش</th>
+                                    <th class="fit">شناسه دوره</th>
+                                    <th>عنوان دوره</th>
                                     <th class="fit">سازمان</th>
                                     <th class="fit">وضعیت</th>
                                     <th class="fit">تاریخ ثبت</th>

@@ -157,7 +157,7 @@ $CI =& get_instance();
                     <li <?php echo $CI->uri->segment(2) == 'Orders' ? 'class="active"' : '' ?> >
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">bookmark</i>
-                            <span>سفارشات</span>
+                            <span>دوره ها</span>
                         </a>
                     <ul class="ml-menu" style="display: none;">
                         <li <?php if (strstr($uri, '/Orders/index') !== false) echo "class='active'"; ?>>
