@@ -1,0 +1,1 @@
+<?phpfunction loginRecord($UserArray){    $ci =& get_instance();    $ci->db->insert('login_records', $UserArray);}?>

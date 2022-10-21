@@ -1,0 +1,1 @@
+$(document).ready(function(d){"use strict";d(window).load(function(){d("#themeblossom_loading_screen").addClass("loaded")})});
