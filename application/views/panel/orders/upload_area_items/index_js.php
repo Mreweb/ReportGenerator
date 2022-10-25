@@ -28,6 +28,7 @@
                                 $result = JSON.parse(data);
                                 notify($result['content'], $result['type']);
                                 toggleLoader();
+                                location.reload();
                             },
                             error: function (data) {
                             }

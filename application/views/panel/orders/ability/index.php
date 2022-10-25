@@ -62,7 +62,7 @@
                                     </thead>
                                     <tbody  class="sortable">
                                     <?php
-                                    foreach ($orderArea as $item) { ?>
+                                    foreach ($orderArea as $item) {  ?>
                                         <tr class="ability-row">
                                             <td><?php echo $item['AreaTitle']; ?></td>
                                             <td class="fit"><?php echo pipeEnum('AreaDataType', $item['AreaDataType']); ?></td>
@@ -74,6 +74,9 @@
                                                         عملیات <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a href="<?php echo base_url('Panel/Orders/uploadItemsScore/' . $item['AreaId']); ?>">بارگذاری نمرات</a>
+                                                        </li>
                                                         <li>
                                                             <a href="<?php echo base_url('Panel/Orders/uploadItems/' . $item['AreaId']); ?>">بارگذاری مولفه ها</a>
                                                         </li>

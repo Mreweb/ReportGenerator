@@ -4,8 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class Orders extends CI_Controller
-{
+class Orders extends CI_Controller{
     private $loginInfo;
 
     public function __construct()
@@ -259,6 +258,7 @@ class Orders extends CI_Controller
         $this->load->view('panel/orders/ability_edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEditArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -304,6 +304,7 @@ class Orders extends CI_Controller
         $this->load->view('panel/orders/upload_area_items/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doUploadItems()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -335,6 +336,7 @@ class Orders extends CI_Controller
         $result = $this->config->item('DBMessages')['SuccessAction'];
         echo json_encode($result);
     }
+
     public function editAreaItem($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -346,6 +348,7 @@ class Orders extends CI_Controller
         $this->load->view('panel/orders/area_item_edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEditAreaItem()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -361,6 +364,7 @@ class Orders extends CI_Controller
         $result = $this->ModelOrders->doEditAreaItem($inputs);
         echo json_encode($result);
     }
+
     public function doDeleteAreaItem()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -374,6 +378,91 @@ class Orders extends CI_Controller
             return makeSafeInput($v);
         }, $inputs);
         $result = $this->ModelOrders->doDeleteAreaItem($inputs);
+        echo json_encode($result);
+    }
+
+    public function uploadItemsScore($id){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'ویرایش سفارش';
+        $data['Enum'] = $this->config->item('Enum');
+        $data['area'] = $this->ModelOrders->getAreaByAreaId($id);
+        $data['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($id);
+        $this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/upload_area_items_score/index', $data);
+        $this->load->view('panel/orders/upload_area_items_score/index_css');
+        $this->load->view('panel/orders/upload_area_items_score/index_js');
+        $this->load->view('panel/static/footer');
+    }
+    public function doOrderAreaScorePagination()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $data = $this->ModelOrders->getOrderAreaScore($inputs);
+        $data['itemCount'] = $inputs['inputAreaItemsCount'];
+        $data['htmlResult'] = $this->load->view('panel/orders/upload_area_items_score/pagination', $data, TRUE);
+        unset($data['data']);
+        echo json_encode($data);
+    }
+
+
+    public function doExportAreaScoreFile()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $areaItems = $this->ModelOrders->getAreaItemsByAreaId($inputs['inputAreaId']);
+        require 'vendor/autoload.php';
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $indexCharacter = 0;
+        $indexNumber = 1;
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'نام');
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'نام خانوادگی');
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'کد ملی');
+        foreach ($areaItems as $ai) {
+            $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['FATTitle']);
+        }
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'Score_' . randomString() . '.xlsx';
+        $writer->save('uploads/' . $filename);
+        echo json_encode(
+            array(
+                'fileName' => base_url('uploads/' . $filename)
+            )
+        );
+    }
+    public function doImportAreaScoreFile(){
+        $inputs = $this->input->post(NULL, TRUE);
+        $areaItems = $this->ModelOrders->getAreaItemsByAreaId($inputs['inputAreaId']);
+        $inputFileName = $_FILES["file"]['tmp_name'];
+        $AreaId = $inputs['inputAreaId'];
+        require 'vendor/autoload.php';
+        $spreadsheet = new Spreadsheet();
+        $inputFileType = 'Xlsx';
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+        $reader->setReadDataOnly(true);
+        $spreadsheet = $reader->load($inputFileName);
+        $worksheet = $spreadsheet->getActiveSheet();
+        $data = $worksheet->toArray();
+        if (sizeof($data[0]) - 3 != sizeof($areaItems)) {
+            $msg = $this->config->item('DBMessages')['ErrorAction'];
+            $msg['content'] = 'فایل اکسل منطبق بر تعداد مولفه ها نیست';
+            echo json_encode($msg);
+            die();
+        }
+        $totalSizeItems = sizeof($areaItems);
+        for ($i = 1; $i < sizeof($data); $i++) {
+            for($j=0;$j<$totalSizeItems;$j++){
+                $this->db->insert('foundation_order_area_titles_scores',
+                    array(
+                        'FirstName' => $data[$i][0],
+                        'LastName' => $data[$i][1],
+                        'NationalCode' => $data[$i][2],
+                        'FATScore' => $data[$i][$j+3],
+                        'FATId' => $areaItems[$j]['FATId'],
+                        'CreateDateTime' => time()
+                    )
+                );
+            }
+        }
+        $result = $this->config->item('DBMessages')['SuccessAction'];
         echo json_encode($result);
     }
 

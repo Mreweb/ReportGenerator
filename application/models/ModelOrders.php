@@ -269,6 +269,34 @@ class ModelOrders extends CI_Model{
         }
     }
 
+    public function getOrderAreaScore($inputs){
+        $this->db->select('*');
+        $this->db->from('foundation_order_area_titles_scores');
+        if (isset($inputs['inputFirstName']) && $inputs['inputFirstName'] != '') {
+            $this->db->like('FirstName', $inputs['inputFirstName']);
+        }
+        if (isset($inputs['inputLastName']) && $inputs['inputLastName'] != '') {
+            $this->db->like('LastName', $inputs['inputLastName']);
+        }
+        if (isset($inputs['inputNationalCode']) && $inputs['inputNationalCode'] != '') {
+            $this->db->like('NationalCode', $inputs['inputNationalCode']);
+        }
+        if (isset($inputs['inputFATId']) && $inputs['inputFATId'] != '') {
+            $this->db->where('FATId', $inputs['inputFATId']);
+        }
+        $tempDb = clone $this->db;
+        $result['count'] = $tempDb->get()->num_rows();
+        $query = $this->db->get()->result_array();
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['startPage'] = 0;
+        } else {
+            $result['data'] = false;
+        }
+        return $result;
+    }
+
+
 
 }
 
