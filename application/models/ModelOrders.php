@@ -216,6 +216,60 @@ class ModelOrders extends CI_Model{
     }
 
 
+    public function getAreaItemsByAreaId($id)
+    {
+        $this->db->select('*');
+        $this->db->from('foundation_order_area_titles');
+        $this->db->where('FATAreaId', $id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return array();
+    }
+    public function getAreaItemByAreaItemId($id)
+    {
+        $this->db->select('*');
+        $this->db->from('foundation_order_area_titles');
+        $this->db->where('FATId', $id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array()[0];
+        }
+        return array();
+    }
+    public function doEditAreaItem($inputs)
+    {
+        $this->db->trans_start();
+        $UserArray = array(
+            'FATTitle' => $inputs['inputFATTitle'],
+            'CreateDateTime' => time()
+        );
+        $this->db->where('FATId', $inputs['inputFATId']);
+        $this->db->update('foundation_order_area_titles', $UserArray);
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            return $this->config->item('DBMessages')['ErrorAction'];
+        } else {
+            return $this->config->item('DBMessages')['SuccessAction'];
+        }
+    }
+    public function doDeleteAreaItem($inputs)
+    {
+        $this->db->trans_start();
+        $this->db->delete('foundation_order_area_titles', array(
+            'FATId' => $inputs['inputFATId']
+        ));
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            return $this->config->item('DBMessages')['ErrorAction'];
+        } else {
+            return $this->config->item('DBMessages')['SuccessAction'];
+        }
+    }
+
+
 }
 
 ?>

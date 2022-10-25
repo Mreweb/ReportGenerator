@@ -1,9 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-class Orders extends CI_Controller{
+
+class Orders extends CI_Controller
+{
     private $loginInfo;
+
     public function __construct()
     {
         parent::__construct();
@@ -13,6 +17,7 @@ class Orders extends CI_Controller{
         $this->load->model('ModelCustomer');
         $this->load->model('ModelOrders');
     }
+
     public function index()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -24,6 +29,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/home/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doPagination()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -32,6 +38,7 @@ class Orders extends CI_Controller{
         unset($data['data']);
         echo json_encode($data);
     }
+
     public function add()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -44,6 +51,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/add/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doAdd()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -59,6 +67,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doAdd($inputs);
         echo json_encode($result);
     }
+
     public function edit($id)
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -71,6 +80,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEdit()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -96,6 +106,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doEdit($inputs);
         echo json_encode($result);
     }
+
     public function doDelete()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -111,6 +122,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doDelete($inputs);
         echo json_encode($result);
     }
+
     public function doCopy()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -219,6 +231,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/ability/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doAddArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -234,6 +247,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doAddArea($inputs);
         echo json_encode($result);
     }
+
     public function editArea($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -260,6 +274,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doEditArea($inputs);
         echo json_encode($result);
     }
+
     public function doDeleteArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -273,6 +288,92 @@ class Orders extends CI_Controller{
             return makeSafeInput($v);
         }, $inputs);
         $result = $this->ModelOrders->doDeleteArea($inputs);
+        echo json_encode($result);
+    }
+
+
+    public function uploadItems($id){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'ویرایش سفارش';
+        $data['Enum'] = $this->config->item('Enum');
+        $data['area'] = $this->ModelOrders->getAreaByAreaId($id);
+        $data['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($id);
+        $this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/upload_area_items/index', $data);
+        $this->load->view('panel/orders/upload_area_items/index_css');
+        $this->load->view('panel/orders/upload_area_items/index_js');
+        $this->load->view('panel/static/footer');
+    }
+    public function doUploadItems()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputFileName = $_FILES["file"]['tmp_name'];
+        $AreaId = $inputs['inputAreaId'];
+        require 'vendor/autoload.php';
+        $spreadsheet = new Spreadsheet();
+        $inputFileType = 'Xlsx';
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+        $reader->setReadDataOnly(true);
+        $spreadsheet = $reader->load($inputFileName);
+        $worksheet = $spreadsheet->getActiveSheet();
+        $data = $worksheet->toArray();
+
+        $this->db->delete('foundation_order_area_titles', array(
+            'FATAreaId' => $AreaId
+        ));
+        for ($i = 1; $i < sizeof($data); $i++) {
+            if ($data[$i][0] != '' && $data[$i][0] != null) {
+                $this->db->insert('foundation_order_area_titles',
+                    array(
+                        'FATTitle' => $data[$i][0],
+                        'FATAreaId' => $AreaId,
+                        'CreateDateTime' => time()
+                    )
+                );
+            }
+        }
+        $result = $this->config->item('DBMessages')['SuccessAction'];
+        echo json_encode($result);
+    }
+    public function editAreaItem($id){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'ویرایش سفارش';
+        $data['Enum'] = $this->config->item('Enum');
+        $data['areaItem'] = $this->ModelOrders->getAreaItemByAreaItemId($id);
+        $this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/area_item_edit/index', $data);
+        $this->load->view('panel/orders/area_item_edit/index_css');
+        $this->load->view('panel/orders/area_item_edit/index_js');
+        $this->load->view('panel/static/footer');
+    }
+    public function doEditAreaItem()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $result = $this->ModelOrders->doEditAreaItem($inputs);
+        echo json_encode($result);
+    }
+    public function doDeleteAreaItem()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $result = $this->ModelOrders->doDeleteAreaItem($inputs);
         echo json_encode($result);
     }
 

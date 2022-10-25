@@ -2,67 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/area_item_edit/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/area_item_edit/index_css.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/area_item_edit/index_js.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items/index_css.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items/index_js.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/area_item.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/c80f0d93eae88b7ad45509ad6d237a25_Hashban_Trello_Hours.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ModelAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelAccount.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ModelPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelPerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/home/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_marker_edit/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_marker_edit/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_marker_edit/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_markers/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_markers/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_markers/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_tools_relation/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_tools_relation/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_tools_relation/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/add/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/bind_valuer/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/bind_valuer/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/bind_valuer/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/home/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/model/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/model/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/model/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_edit/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_edit/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_edit/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table_record/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table_record/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/plan_table_record/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table_edit/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table_edit/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/score_table_edit/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_edit/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_edit/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_edit/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_upload_component/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_upload_component/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/tools_upload_component/index_js.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/static/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/static/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,18 +29,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2GReFHUGP2sYKIQSM5v5SdiWMi7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eu.ydp.idea.ts.spec.generator.settings.spec.template" value="import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';&#10;&#10;describe('$ClassName$', () =&gt; {&#10;  let $ObjName$:$ClassName$;&#10;&#10;  beforeEach(() =&gt; {&#10;    $ObjName$ = new $ClassName$();&#10;  });&#10;&#10;  describe('', () =&gt; {&#10;    it('', () =&gt; {&#10;      // given&#10;&#10;      // when&#10;&#10;      // then&#10;    });&#10;  });&#10;});&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KoofaPrintPanel" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ReportGenerator\application\views\panel\orders" />
+      <recent name="C:\wamp64\www\ReportGenerator\application\views\panel\orders\upload_area_items" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -102,18 +62,22 @@
       <option name="presentableId" value="Default" />
       <updated>1666355717833</updated>
       <workItem from="1666355719395" duration="4013000" />
-      <workItem from="1666381871755" duration="1916000" />
+      <workItem from="1666381871755" duration="2482000" />
+      <workItem from="1666631244400" duration="4318000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="1" key="FileChooserDialogImpl" timestamp="1666358415876">
+    <state x="363" y="1" key="FileChooserDialogImpl" timestamp="1666636540777">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666358415876" />
+    <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666636540777" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1666358427519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
