@@ -74,7 +74,7 @@
         function loadData(selectedPage = $selectedPage){
             toggleLoader();
             $sendData = {
-                'inputOrderTitle': $("#inputOrderTitle").val(),
+                'inputAreaId': $("#inputAreaId").val(),
                 'inputAreaItemsCount': $("#inputAreaItemsCount").val(),
                 'pageIndex': selectedPage
             }

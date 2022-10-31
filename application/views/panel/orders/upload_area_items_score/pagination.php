@@ -12,6 +12,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td class="fit"><?php echo $data[$i]['FirstName']; ?></td>
             <td class="fit"><?php echo $data[$i]['LastName']; ?></td>
             <td class="fit"><?php echo $data[$i]['NationalCode']; ?></td>
+            <td class="fit"><a href="<?php echo  base_url('Panel/Orders/report/'.$data[$i]['NationalCode'].'/'.$inputAreaId); ?>">مشاهده</a></td>
             <?php for ($j=0;$j<$itemCount;$j++) { ?>
                 <td class="fit"><?php echo $data[$i+$j]['FATScore']; ?></td>
             <?php } ?>

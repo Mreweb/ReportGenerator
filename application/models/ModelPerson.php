@@ -47,9 +47,8 @@ class ModelPerson extends CI_Model{
     public function getPersonByNationalCode($NationalCode)
     {
         $this->db->select('*');
-        $this->db->from('person');
-        $this->db->where(array('PersonNationalCode' => $NationalCode));
-        $this->db->or_where(array('PersonCode' => $NationalCode));
+        $this->db->from('foundation_order_area_titles_scores');
+        $this->db->where(array('NationalCode' => $NationalCode));
         return $this->db->get()->result_array();
     }
 

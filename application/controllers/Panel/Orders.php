@@ -15,6 +15,7 @@ class Orders extends CI_Controller{
         $this->load->model('ModelFoundation');
         $this->load->model('ModelCustomer');
         $this->load->model('ModelOrders');
+        $this->load->model('ModelPerson');
     }
 
     public function index()
@@ -291,7 +292,6 @@ class Orders extends CI_Controller{
         echo json_encode($result);
     }
 
-
     public function uploadItems($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -393,16 +393,15 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/upload_area_items_score/index_js');
         $this->load->view('panel/static/footer');
     }
-    public function doOrderAreaScorePagination()
-    {
+    public function doOrderAreaScorePagination(){
         $inputs = $this->input->post(NULL, TRUE);
         $data = $this->ModelOrders->getOrderAreaScore($inputs);
+        $data['inputAreaId'] = $inputs['inputAreaId'];
         $data['itemCount'] = $inputs['inputAreaItemsCount'];
         $data['htmlResult'] = $this->load->view('panel/orders/upload_area_items_score/pagination', $data, TRUE);
         unset($data['data']);
         echo json_encode($data);
     }
-
 
     public function doExportAreaScoreFile()
     {
@@ -464,6 +463,30 @@ class Orders extends CI_Controller{
         }
         $result = $this->config->item('DBMessages')['SuccessAction'];
         echo json_encode($result);
+    }
+
+
+    public function report($nationalCode,$areaId){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'ویرایش سفارش';
+        $data['Enum'] = $this->config->item('Enum');
+        $data['area'] = $this->ModelOrders->getAreaByAreaId($areaId);
+        $data['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($areaId);
+
+        $data['person'] = $this->ModelPerson->getPersonByNationalCode($nationalCode);
+        if(isset($data['person'][0])){
+            $data['person'] = $data['person'][0];
+        }
+        $data['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$areaId);
+        $data['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($areaId);
+
+
+        $this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/report/index', $data);
+        $this->load->view('panel/orders/report/index_css');
+        $this->load->view('panel/orders/report/index_js', $data);
+        $this->load->view('panel/static/footer');
+
     }
 
 

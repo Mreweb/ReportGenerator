@@ -55,6 +55,7 @@
                                         <th class="fit">نام</th>
                                         <th class="fit">نام خانوداگی</th>
                                         <th class="fit">کد ملی</th>
+                                        <th class="fit">نتایج</th>
                                         <?php foreach ($areaItems as $item){ ?>
                                             <th class="fit">
                                                 <?php echo $item['FATTitle'] ?>
