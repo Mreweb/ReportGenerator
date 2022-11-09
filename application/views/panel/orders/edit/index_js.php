@@ -3,12 +3,16 @@
         $("#editOrder").click(function () {
             $inputOrderId = $.trim($("#inputOrderId").val());
             $inputOrderTitle = $.trim($("#inputOrderTitle").val());
+            $inputBreakContent = $.trim($("#inputBreakContent").val());
+            $inputBreakTable = $.trim($("#inputBreakTable").val());
             $inputFoundationId = $.trim($("#inputFoundationId").val());
             $inputIsActive  = $.trim($("#inputIsActive").val());
             toggleLoader();
             $sendData = {
                 'inputOrderId': $inputOrderId,
                 'inputOrderTitle': $inputOrderTitle,
+                'inputBreakContent': $inputBreakContent,
+                'inputBreakTable': $inputBreakTable,
                 'inputFoundationId': $inputFoundationId,
                 'inputIsActive': $inputIsActive
             }

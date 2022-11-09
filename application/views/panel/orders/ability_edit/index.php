@@ -29,6 +29,36 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakContent">شکستن متن</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputBreakContent" id="inputBreakContent">
+                                                <option <?php setOptionSelected($area['BreakContent'] , 0); ?>  value="0">خیر</option>
+                                                <option <?php setOptionSelected($area['BreakContent'] , 1); ?>  value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakTable">شکستن جدول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputBreakTable" id="inputBreakTable">
+                                                <option <?php setOptionSelected($area['BreakTable'] , 0); ?>   value="0">خیر</option>
+                                                <option <?php setOptionSelected($area['BreakTable'] , 1); ?>   value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <label class="required" for="inputAreaContent">توضیحات</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea type="text" class="form-control" style="width: 100%;height: 150px;resize: none" id="inputAreaContent" name="inputAreaContent"><?php echo nl2br($area['AreaContent']); ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12">
                                     <button id="edit" type="button"
                                             class="btn btn-success waves-effect pull-left">

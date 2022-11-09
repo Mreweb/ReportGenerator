@@ -38,6 +38,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakContent">شکستن متن</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputBreakContent" id="inputBreakContent">
+                                                <option <?php setOptionSelected($order['BreakContent'] , 0); ?>  value="0">خیر</option>
+                                                <option <?php setOptionSelected($order['BreakContent'] , 1); ?>  value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakTable">شکستن جدول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputBreakTable" id="inputBreakTable">
+                                                <option <?php setOptionSelected($order['BreakTable'] , 0); ?>   value="0">خیر</option>
+                                                <option <?php setOptionSelected($order['BreakTable'] , 1); ?>   value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12 col-sm-6 col-md-2">
                                     <label class="required" for="inputIsActive">وضعیت</label>
                                     <div class="form-group">

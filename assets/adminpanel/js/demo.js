@@ -208,7 +208,7 @@ $(document).ready(function(){
 
 
     } , 2000);
-    $(".table-responsive").removeClass('table-responsive');
+    //$(".table-responsive").removeClass('table-responsive');
     $('.select-picker').selectpicker({
         'liveSearch' : true
     });

@@ -3,10 +3,14 @@
         $("#addOrder").click(function () {
             $inputOrderTitle = $.trim($("#inputOrderTitle").val());
             $inputFoundationId = $.trim($("#inputFoundationId").val());
+            $inputBreakContent = $.trim($("#inputBreakContent").val());
+            $inputBreakTable = $.trim($("#inputBreakTable").val());
             toggleLoader();
             $sendData = {
                 'inputOrderTitle': $inputOrderTitle,
                 'inputFoundationId': $inputFoundationId,
+                'inputBreakContent': $inputBreakContent,
+                'inputBreakTable': $inputBreakTable
             }
             $.ajax({
                 type: 'post',

@@ -49,22 +49,25 @@
                             </fieldset>
                             <fieldset class="col-xs-12">
                                 <legend>نمرات</legend>
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th class="fit">نام</th>
-                                        <th class="fit">نام خانوداگی</th>
-                                        <th class="fit">کد ملی</th>
-                                        <th class="fit">نتایج</th>
-                                        <?php foreach ($areaItems as $item){ ?>
-                                            <th class="fit">
-                                                <?php echo $item['FATTitle'] ?>
-                                            </th>
-                                        <?php } ?>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="table-rows"></tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="fit">نام</th>
+                                            <th class="fit">نام خانوداگی</th>
+                                            <th class="fit">کد ملی</th>
+                                            <th class="fit">نتایج</th>
+                                            <th class="fit">همه نتایج این دوره</th>
+                                            <?php foreach ($areaItems as $item){ ?>
+                                                <th class="fit">
+                                                    <?php echo $item['FATTitle'] ?>
+                                                </th>
+                                            <?php } ?>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="table-rows"></tbody>
+                                    </table>
+                                </div>
                                 <div class="col-xs-12">
                                     <div class="pagination-holder clearfix">
                                         <div id="light-pagination" class="pagination light-theme simple-pagination">

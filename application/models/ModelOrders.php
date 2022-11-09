@@ -100,10 +100,11 @@ class ModelOrders extends CI_Model{
         }
         return array();
     }
-    public function doAdd($inputs)
-    {
+    public function doAdd($inputs){
         $UserArray = array(
             'OrderTitle' => $inputs['inputOrderTitle'],
+            'BreakContent' => $inputs['inputBreakContent'],
+            'BreakTable' => $inputs['inputBreakTable'],
             'FoundationId' => $inputs['inputFoundationId'],
             'CreateDateTime' => time()
         );
@@ -120,6 +121,8 @@ class ModelOrders extends CI_Model{
         $this->db->trans_start();
         $UserArray = array(
             'OrderTitle' => $inputs['inputOrderTitle'],
+            'BreakContent' => $inputs['inputBreakContent'],
+            'BreakTable' => $inputs['inputBreakTable'],
             'FoundationId' => $inputs['inputFoundationId'],
             'IsActive' => $inputs['inputIsActive'],
             'CreateDateTime' => time()
@@ -172,6 +175,9 @@ class ModelOrders extends CI_Model{
         $UserArray = array(
             'AreaTitle' => $inputs['inputAbilityTitle'],
             'OrderId' => $inputs['inputOrderId'],
+            'AreaContent' => $inputs['inputAreaContent'],
+            'BreakContent' => $inputs['inputBreakContent'],
+            'BreakTable' => $inputs['inputBreakTable'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );
@@ -183,11 +189,13 @@ class ModelOrders extends CI_Model{
             return $this->config->item('DBMessages')['SuccessAction'];
         }
     }
-    public function doEditArea($inputs)
-    {
+    public function doEditArea($inputs){
         $this->db->trans_start();
         $UserArray = array(
             'AreaTitle' => $inputs['inputAreaTitle'],
+            'AreaContent' => $inputs['inputAreaContent'],
+            'BreakContent' => $inputs['inputBreakContent'],
+            'BreakTable' => $inputs['inputBreakTable'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );
@@ -334,8 +342,6 @@ class ModelOrders extends CI_Model{
         }
         return $items;
     }
-
-
 
 }
 

@@ -3,7 +3,6 @@
         Chart.defaults.font.family = "Vazir";
         var ReghbatMinMaxAvgChartCTX = document.getElementById("ReghbatMinMaxAvgChart");
         new Chart(ReghbatMinMaxAvgChartCTX, {
-            plugins: [ChartDataLabels],
             type: 'bar',
             data: {
                 labels: [<?php  foreach ($areaItems as $item) {  echo "'" . $item['FATTitle'] . "',"; }; ?>],
@@ -35,7 +34,7 @@
                 ]
             },
             options: {
-                responsive: true,
+                responsive: false,
                 maintainAspectRatio: true,
                 scale: {
                     min: 0,
@@ -43,14 +42,15 @@
                     ticks: {
                         showLabelBackdrop: false,
                         font: {
-                            size: 18
+                            size: 12
                         }
                     }
                 }
             },
+            /*plugins: [ChartDataLabels],*/
             plugins: {
                 legend: {
-                    display: false,
+                    display: true,
                     position: 'top'
                 },
                 datalabels: {

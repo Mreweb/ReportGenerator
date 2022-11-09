@@ -2,26 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index_css.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index_js.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ui/js/chartjs-3.7.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ui/js/chartjs-data-labels.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ui/js/chartjs-plugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Score_2863714905.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/helpers/utility/pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/utility/pipe_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ModelPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelPerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/result/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/result/index_css.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/result/index_js.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/add/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index_js.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/index_js.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/adminpanel/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/adminpanel/plugins/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/adminpanel/js/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/adminpanel/js/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report_generator.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_1059632847.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_1983562470.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_2863714905.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_3094672581.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_4012756893.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_5730964182.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_7236095841.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_7301468295.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_8275361049.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/Score_9408217365.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/c80f0d93eae88b7ad45509ad6d237a25_Hashban_Trello_Hours.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +39,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,15 +50,19 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eu.ydp.idea.ts.spec.generator.settings.spec.template" value="import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';&#10;&#10;describe('$ClassName$', () =&gt; {&#10;  let $ObjName$:$ClassName$;&#10;&#10;  beforeEach(() =&gt; {&#10;    $ObjName$ = new $ClassName$();&#10;  });&#10;&#10;  describe('', () =&gt; {&#10;    it('', () =&gt; {&#10;      // given&#10;&#10;      // when&#10;&#10;      // then&#10;    });&#10;  });&#10;});&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/ui/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MajlessExam2" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -78,23 +90,34 @@
       <workItem from="1666685142518" duration="4548000" />
       <workItem from="1666701628042" duration="209000" />
       <workItem from="1667240544490" duration="8141000" />
+      <workItem from="1667739354783" duration="1193000" />
+      <workItem from="1667889158889" duration="13734000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="1" key="FileChooserDialogImpl" timestamp="1666701887009">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-1137" y="0" key="#Illuminated_Cloud" timestamp="1667739386642">
+      <screen x="-1366" y="0" width="1366" height="728" />
     </state>
+    <state x="-1137" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667739386642" />
+    <state x="-1003" y="1" key="FileChooserDialogImpl" timestamp="1667978868460">
+      <screen x="-1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="-1003" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667978868460" />
     <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666701887009" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1666358427519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666358427519" />
+    <state x="-1111" y="159" key="run.anything.popup" timestamp="1667894496887">
+      <screen x="-1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="-1111" y="159" key="run.anything.popup/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667894496887" />
   </component>
 </project>

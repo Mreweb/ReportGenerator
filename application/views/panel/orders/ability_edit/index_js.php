@@ -4,11 +4,17 @@
             $inputAreaId           = $.trim($("#inputAreaId").val());
             $inputAreaTitle            = $.trim($("#inputAreaTitle").val());
             $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
+            $inputAreaContent       = $.trim($("#inputAreaContent").val());
+            $inputBreakContent       = $.trim($("#inputBreakContent").val());
+            $inputBreakTable       = $.trim($("#inputBreakTable").val());
             toggleLoader();
             $sendData = {
                 'inputAreaId': $inputAreaId,
                 'inputAreaTitle': $inputAreaTitle,
-                'inputAreaDataType': $inputAreaDataType
+                'inputAreaContent': $inputAreaContent,
+                'inputAreaDataType': $inputAreaDataType,
+                'inputBreakContent': $inputBreakContent,
+                'inputBreakTable': $inputBreakTable
             }
             $.ajax({
                 type: 'post',

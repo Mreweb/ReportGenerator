@@ -3,12 +3,18 @@
         $("#addAbility").click(function () {
             $inputOrderId            = $.trim($("#inputOrderId").val());
             $inputAreaTitle            = $.trim($("#inputAreaTitle").val());
+            $inputAreaContent       = $.trim($("#inputAreaContent").val());
             $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
+            $inputBreakContent       = $.trim($("#inputBreakContent").val());
+            $inputBreakTable       = $.trim($("#inputBreakTable").val());
             toggleLoader();
             $sendData = {
                 'inputOrderId': $inputOrderId,
                 'inputAbilityTitle': $inputAreaTitle,
-                'inputAreaDataType': $inputAreaDataType
+                'inputAreaContent': $inputAreaContent,
+                'inputAreaDataType': $inputAreaDataType,
+                'inputBreakContent': $inputBreakContent,
+                'inputBreakTable': $inputBreakTable
             }
             $.ajax({
                 type: 'post',
