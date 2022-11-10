@@ -20,6 +20,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
                         عملیات <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url('Panel/Orders/persons/') . $item['OrderId']; ?>">فهرست افراد</a></li>
                             <li><a href="<?php echo base_url('Panel/Orders/area/') . $item['OrderId']; ?>">تعریف حوزه ارزیابی</a></li>
                             <li><a href="<?php echo base_url('Panel/Orders/edit/') . $item['OrderId']; ?>">ویرایش دوره</a></li>
                             <li><a class="remove" data-id="<?php echo $item['OrderId']; ?>" data-title="<?php echo $item['OrderTitle']; ?>">حذف دوره</a></li>

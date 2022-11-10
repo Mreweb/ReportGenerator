@@ -31,6 +31,34 @@ class ModelOrders extends CI_Model{
         }
         return $result;
     }
+    public function getOrderPersons($inputs){
+        $limit = $inputs['pageIndex'];
+         $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+        $this->db->select('FirstName ,LastName , NationalCode , Tag , OrderId ');
+        $this->db->from('foundation_order_area_titles_scores');
+        $this->db->from('foundation_order_area_titles' , 'foundation_order_area_titles.FATId = foundation_order_area_titles_scores.FATId');
+        $this->db->from('foundation_order_area' , 'foundation_order_area.AreaId = foundation_order_area_titles.FATAreaId');
+        $this->db->where_in('foundation_order_area_titles_scores.FATId', $inputs['inputOrderFATIds']);
+        if (isset($inputs['inputLastName']) && $inputs['inputLastName'] != '') {
+            $this->db->like('LastName', $inputs['inputLastName']);
+        }
+        if (isset($inputs['inputNationalCode']) && $inputs['inputNationalCode'] != '') {
+            $this->db->where('NationalCode', $inputs['inputNationalCode']);
+        }
+        $this->db->group_by('NationalCode');
+        $tempDb = clone $this->db;
+        $result['count'] = $tempDb->get()->num_rows();
+        $this->db->limit($end, $start);
+        $query = $this->db->get()->result_array();
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['startPage'] = $start;
+        } else {
+            $result['data'] = false;
+        }
+        return $result;
+    }
     public function getByManagerId($inputs)
     {
         $limit = $inputs['pageIndex'];
@@ -178,6 +206,7 @@ class ModelOrders extends CI_Model{
             'AreaContent' => $inputs['inputAreaContent'],
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
+            'BreakChart' => $inputs['inputBreakChart'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );
@@ -196,6 +225,7 @@ class ModelOrders extends CI_Model{
             'AreaContent' => $inputs['inputAreaContent'],
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
+            'BreakChart' => $inputs['inputBreakChart'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );

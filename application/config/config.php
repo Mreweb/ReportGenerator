@@ -59,7 +59,7 @@ $config['gifLoader'] = $config['base_url'] . 'assets/ui/images/loader.gif';
 /* عنوان پیش فرض سایت */
 $config['defaultPageTitle'] = '';
 /* تعداد سطر های پیش فرض جهت نمایش در پتل ها */
-$config['defaultPageSize'] = 6;
+$config['defaultPageSize'] = 10;
 /* مسیر آپلود فایل های کاربران برای نمایندگی */
 $config['upload_path'] = './uploads/';
 /* استان پیش فرض تهران است */

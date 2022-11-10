@@ -7,6 +7,7 @@
             $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
             $inputBreakContent       = $.trim($("#inputBreakContent").val());
             $inputBreakTable       = $.trim($("#inputBreakTable").val());
+            $inputBreakChart       = $.trim($("#inputBreakChart").val());
             toggleLoader();
             $sendData = {
                 'inputOrderId': $inputOrderId,
@@ -14,7 +15,8 @@
                 'inputAreaContent': $inputAreaContent,
                 'inputAreaDataType': $inputAreaDataType,
                 'inputBreakContent': $inputBreakContent,
-                'inputBreakTable': $inputBreakTable
+                'inputBreakTable': $inputBreakTable,
+                'inputBreakChart': $inputBreakChart
             }
             $.ajax({
                 type: 'post',

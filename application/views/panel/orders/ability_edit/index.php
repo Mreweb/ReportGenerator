@@ -51,6 +51,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakChart">شکستن نمودار</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputBreakChart" id="inputBreakChart">
+                                                <option <?php setOptionSelected($area['BreakChart'] , 0); ?>   value="0">خیر</option>
+                                                <option <?php setOptionSelected($area['BreakChart'] , 1); ?>   value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12">
                                     <label class="required" for="inputAreaContent">توضیحات</label>
                                     <div class="form-group">

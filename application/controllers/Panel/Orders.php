@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
 class Orders extends CI_Controller{
     private $loginInfo;
     public function __construct()
@@ -207,6 +205,32 @@ class Orders extends CI_Controller{
          }
          $this->ModelOrders->doUpdateAbilityToolsRelation($inputData);*/
         echo json_encode($this->config->item('DBMessages')['SuccessAction']);
+    }
+    public function persons($orderId){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'سفارشات';
+        $inputs['pageIndex'] = 1;
+        $data['order'] = $this->ModelOrders->getByOrderId($orderId);
+        $data['orderArea'] = $this->ModelOrders->getAreaByOrderId($orderId);
+        $data['FATIds'] = array();
+        foreach ($data['orderArea'] as $item) {
+            $areaItems= $this->ModelOrders->getAreaItemsByAreaId($item['AreaId']);
+            foreach ($areaItems as $areaItem) {
+                array_push( $data['FATIds'] , $areaItem['FATId']);
+            }
+        }
+        $this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/persons/index');
+        $this->load->view('panel/orders/persons/index_css');
+        $this->load->view('panel/orders/persons/index_js');
+        $this->load->view('panel/static/footer');
+    }
+    public function doOrderPersonsPagination(){
+        $inputs = $this->input->post(NULL, TRUE);
+        $data = $this->ModelOrders->getOrderPersons($inputs);
+        $data['htmlResult'] = $this->load->view('panel/orders/persons/pagination', $data, TRUE);
+        unset($data['data']);
+        echo json_encode($data);
     }
     public function area($orderId){
         $data['noImg'] = $this->config->item('defaultImage');
@@ -485,5 +509,45 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/report/index_js', $data);
         //$this->load->view('panel/static/footer');
 
+    }
+    public function reportFull($nationalCode , $orderId){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = 'ویرایش سفارش';
+        $data['Enum'] = $this->config->item('Enum');
+        $data['person'] = $this->ModelPerson->getPersonByNationalCode($nationalCode);
+        if(isset($data['person'][0])){
+            $data['person'] = $data['person'][0];
+        }
+        $data['order'] = $this->ModelOrders->getByOrderId($orderId);
+        $data['area'] = $this->ModelOrders->getAreaByOrderId($orderId);
+        $totalResult  = array();
+        foreach ($data['area'] as $area){
+            $temp = array();
+            $temp['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($area['AreaId']);
+            $temp['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$area['AreaId']);
+            if(!empty($temp['personResult'])) {
+                $temp['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($area['AreaId']);
+                if(count($temp['personResult']) < 5){
+                    $partCount = 1;
+                } else{
+                    $partCount = round(count($temp['personResult']) / 5) + 1;
+                }
+                $temp['personResultChunk'] = array_chunk($temp['personResult'], (ceil(count($temp['personResult']) / $partCount)));
+                $temp['ResultChunk'] = array_chunk($temp['Result'], (ceil(count($temp['Result']) / $partCount)));
+                $temp['areaItemsChunk'] = array_chunk($temp['areaItems'], (ceil(count($temp['areaItems']) / $partCount)));
+                $temp['TableCount'] = sizeof($temp['personResultChunk']);
+                $temp['area'] = $area;
+                $temp['uuid'] = randomString();
+                array_push($totalResult, $temp);
+            } else{
+                array_push($totalResult, $temp);
+            }
+        }
+        $data['TotalResult'] = $totalResult;
+        //$this->load->view('panel/static/header', $data);
+        $this->load->view('panel/orders/report/full/index', $data);
+        $this->load->view('panel/orders/report/full/index_css');
+        $this->load->view('panel/orders/report/full/index_js', $data);
+        //$this->load->view('panel/static/footer');
     }
 }

@@ -21,5 +21,5 @@ $db['default'] = array(
     'compress' => FALSE,
     'stricton' => FALSE,
     'failover' => array(),
-    'save_queries' => FALSE
+    'save_queries' => TRUE
 );
