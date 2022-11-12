@@ -38,7 +38,7 @@
                         ]
                     },
                     {
-                        label: "سازمان",
+                        label: "میانگین سازمان",
                         fillColor: "red",
                         data: [<?php  foreach ($Result as $temp) {
                             echo $temp['AVG'] . ",";

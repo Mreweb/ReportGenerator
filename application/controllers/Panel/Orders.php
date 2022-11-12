@@ -527,10 +527,10 @@ class Orders extends CI_Controller{
             $temp['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$area['AreaId']);
             if(!empty($temp['personResult'])) {
                 $temp['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($area['AreaId']);
-                if(count($temp['personResult']) < 5){
+                if(count($temp['personResult']) < 7){
                     $partCount = 1;
                 } else{
-                    $partCount = round(count($temp['personResult']) / 5) + 1;
+                    $partCount = round(count($temp['personResult']) / 6) + 1;
                 }
                 $temp['personResultChunk'] = array_chunk($temp['personResult'], (ceil(count($temp['personResult']) / $partCount)));
                 $temp['ResultChunk'] = array_chunk($temp['Result'], (ceil(count($temp['Result']) / $partCount)));

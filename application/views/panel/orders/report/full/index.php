@@ -40,7 +40,16 @@ $CI =& get_instance();
     }
 
     .info strong {
-
+        background: #e8e895 !important;
+        padding: 6px 15px;
+        display: inline-flex;
+        float: right;
+    }
+    .info strong.dore {
+        background: #fff  !important;
+        color: #000 !important;
+        font-size: 10px;
+        padding: 9px;
     }
 
     .info b {
@@ -71,6 +80,7 @@ $CI =& get_instance();
     .color-guid {
         display: inline-block;
         width: 100%;
+        text-align: left;
     }
 
     .color-guid span {
@@ -133,8 +143,8 @@ $CI =& get_instance();
     .result-table tbody tr th {
         padding: 2px;
         border: 1px solid #aaa;
-        width: 16.5% !important;
-        font-size: 14px;
+        width: 14.2% !important;
+        font-size: 12px;
     }
 
     .sidebar, .navbar {
@@ -193,105 +203,105 @@ $CI =& get_instance();
     }
 
 </style>
-<p class="text-center" style="font-size: 18px;">
-    بسمه تعالی
-    <b style="float: left;font-size: 10px;margin: 0px 0px;position: absolute;left: 0;">
-        شماره دوره:
-        <strong class="text-danger"><?php echo $order['OrderTitle']; ?></strong>
-    </b>
-</p>
+
 <div class="col-xs-12 d-block">
         <span class="pull-right area-info">
             <i class="material-icons">spellcheck</i>
-            <b>نتایج ارزیابی</b>
+            <b>نتایج</b>
         </span>
     <span class="pull-left info">
-            <b>
-                نام و نام خانوادگی:
-                <strong class="text-danger"><?php echo $person['FirstName'] . " " . $person['LastName']; ?></strong>
-            </b>
-            <br>
-            <b>
-                <strong class="text-danger"><?php echo $person['Tag']; ?></strong>
-            </b>
+                <strong class="text-danger">
+                     نام و نام خانوادگی:
+                    <?php echo $person['FirstName'] . " " . $person['LastName']; ?>
+                </strong>
+                <strong class="text-danger">
+                    <?php echo $person['Tag']; ?>
+                </strong>
+              <strong class="text-danger dore">
+                  نسخه:
+                  <?php echo $order['OrderTitle']; ?>
+              </strong>
         </span>
 </div>
 
 <?php
-foreach($TotalResult as $item) { if(!empty($item['personResult'])){ ?>
+foreach ($TotalResult as $item) {
+    if (!empty($item['personResult'])) { ?>
 
-    <?php
-    $area = $item['area'];
-    $TableCount = $item['TableCount'];
-    $areaItemsChunk = $item['areaItemsChunk'];
-    $personResultChunk = $item['personResultChunk'];
-    $ResultChunk = $item['ResultChunk'];
-    ?>
+        <?php
+        $area = $item['area'];
+        $TableCount = $item['TableCount'];
+        $areaItemsChunk = $item['areaItemsChunk'];
+        $personResultChunk = $item['personResultChunk'];
+        $ResultChunk = $item['ResultChunk'];
+        ?>
 
-    <div class="section d-block">
-        <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
-        <div class="area-content" style="line-height: 30px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
-    </div>
-    <?php if ($area['BreakContent'] == 1) { ?>
-        <div class="break"></div>
-    <?php } ?>
-    <div class="section d-block">
-        <div class="col-xs-12 color-guid p-0">
-            <span class="level-1"></span>
-            <span class="level-2"></span>
-            <span class="level-3"></span>
-            <span class="level-4"></span>
-            <span class="level-5"></span>
-            <span class="level-6"></span>
-            <span class="level-7"></span>
-            <span class="level-8"></span>
-            <span class="level-9"></span>
-            <span class="level-10"></span>
+        <div class="section d-block">
+            <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
+            <div class="area-content"
+                 style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
         </div>
-        <div class="col-xs-12 result-table p-0">
-            <?php for ($i = 0; $i < $TableCount; $i++) { ?>
-                <?php
-                $areaItemsTemp = $areaItemsChunk[$i];
-                $personResultTemp = $personResultChunk[$i];
-                $ResultTemp = $ResultChunk[$i];
-                ?>
-                <table>
-                    <tr>
-                        <td class="fit text-center">مولفه</td>
-                        <?php foreach ($areaItemsTemp as $temp) { ?>
-                            <td class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
-                        <?php } ?>
-                    </tr>
-                    <tr>
-                        <td class="fit text-center">نمره فرد</td>
-                        <?php foreach ($personResultTemp as $temp) { ?>
-                            <td class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo $temp['FATScore']; ?></td>
-                        <?php } ?>
-                    </tr>
-                    <tr>
-                        <td class="fit text-center">میانگین سازمان</td>
-                        <?php foreach ($ResultTemp as $temp) { ?>
-                            <td class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
-                        <?php } ?>
-                    </tr>
-                </table>
-            <?php } ?>
-        </div>
-    </div>
-    <?php if ($area['BreakTable'] == 1) { ?>
-        <div class="break"></div>
-    <?php } ?>
-    <div class="section d-block">
-        <div class="col-xs-12 area-chart p-0">
-            <div class="col-xs-12 result-chart" style="height: 350px;width: 100%;">
-                <h3 class="area-title">نتایج</h3>
-                <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>" style="height: 350px;width: 100%;"></canvas>
+        <?php if ($area['BreakContent'] == 1) { ?>
+            <div class="break"></div>
+        <?php } ?>
+        <div class="section d-block">
+            <div class="col-xs-12 color-guid p-0">
+                <span class="level-1"></span>
+                <span class="level-2"></span>
+                <span class="level-3"></span>
+                <span class="level-4"></span>
+                <span class="level-5"></span>
+                <span class="level-6"></span>
+                <span class="level-7"></span>
+                <span class="level-8"></span>
+                <span class="level-9"></span>
+                <span class="level-10"></span>
+            </div>
+            <div class="col-xs-12 result-table p-0">
+                <?php for ($i = 0; $i < $TableCount; $i++) { ?>
+                    <?php
+                    $areaItemsTemp = $areaItemsChunk[$i];
+                    $personResultTemp = $personResultChunk[$i];
+                    $ResultTemp = $ResultChunk[$i];
+                    ?>
+                    <table style="margin: 15px 0;">
+                        <tr>
+                            <td class="fit text-center">مولفه</td>
+                            <?php foreach ($areaItemsTemp as $temp) { ?>
+                                <td class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td class="fit text-center">نمره فرد</td>
+                            <?php foreach ($personResultTemp as $temp) { ?>
+                                <td class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td class="fit text-center">میانگین سازمان</td>
+                            <?php foreach ($ResultTemp as $temp) { ?>
+                                <td class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
+                            <?php } ?>
+                        </tr>
+                    </table>
+                <?php } ?>
             </div>
         </div>
-    </div>
-    <?php if ($area['BreakChart'] == 1) { ?>
-        <div class="break"></div>
-    <?php } ?>
+        <?php if ($area['BreakTable'] == 1) { ?>
+            <div class="break"></div>
+        <?php } ?>
+        <div class="section d-block">
+            <div class="col-xs-12 area-chart p-0">
+                <div class="col-xs-12 result-chart" style="height: 250px;width: 100% !important;">
+                    <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
+                            style="height: 250px;width: 100% !important;"></canvas>
+                </div>
+            </div>
+        </div>
+        <?php if ($area['BreakChart'] == 1) { ?>
+            <div class="break"></div>
+        <?php } ?>
 
-<?php } } ?>
+    <?php }
+} ?>
 
