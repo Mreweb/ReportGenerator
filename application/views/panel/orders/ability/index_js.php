@@ -5,6 +5,7 @@
             $inputAreaTitle            = $.trim($("#inputAreaTitle").val());
             $inputAreaContent       = $.trim($("#inputAreaContent").val());
             $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
+            $inputTanasob       = $.trim($("#inputTanasob").val());
             $inputBreakContent       = $.trim($("#inputBreakContent").val());
             $inputBreakTable       = $.trim($("#inputBreakTable").val());
             $inputBreakChart       = $.trim($("#inputBreakChart").val());
@@ -14,6 +15,7 @@
                 'inputAbilityTitle': $inputAreaTitle,
                 'inputAreaContent': $inputAreaContent,
                 'inputAreaDataType': $inputAreaDataType,
+                'inputTanasob': $inputTanasob,
                 'inputBreakContent': $inputBreakContent,
                 'inputBreakTable': $inputBreakTable,
                 'inputBreakChart': $inputBreakChart

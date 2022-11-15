@@ -182,6 +182,7 @@ class ModelOrders extends CI_Model{
         $this->db->select('*');
         $this->db->from('foundation_order_area');
         $this->db->where('OrderId', $id);
+        $this->db->order_by('Tanasob', 'ASC');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result_array();
@@ -204,6 +205,7 @@ class ModelOrders extends CI_Model{
             'AreaTitle' => $inputs['inputAbilityTitle'],
             'OrderId' => $inputs['inputOrderId'],
             'AreaContent' => $inputs['inputAreaContent'],
+            'Tanasob' => $inputs['inputTanasob'],
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
             'BreakChart' => $inputs['inputBreakChart'],
@@ -223,6 +225,7 @@ class ModelOrders extends CI_Model{
         $UserArray = array(
             'AreaTitle' => $inputs['inputAreaTitle'],
             'AreaContent' => $inputs['inputAreaContent'],
+            'Tanasob' => $inputs['inputTanasob'],
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
             'BreakChart' => $inputs['inputBreakChart'],

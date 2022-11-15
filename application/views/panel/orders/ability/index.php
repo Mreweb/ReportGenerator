@@ -44,6 +44,17 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputTanasob">تناسب دارد؟</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputTanasob" id="inputTanasob">
+                                                <option value="0">خیر</option>
+                                                <option value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
                                     <label class="required" for="inputBreakContent">شکستن متن</label>
                                     <div class="form-group">
                                         <div class="form-line">

@@ -496,7 +496,12 @@ class Orders extends CI_Controller{
         $data['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$areaId);
         $data['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($areaId);
 
-        $partCount = round(count($data['personResult']) / 5)+1;
+         if(count($data['personResult']) < 7){
+            $partCount = 1;
+        } else{
+            $partCount = round(count($data['personResult']) / 6) + 1;
+        }
+
         $data['personResultChunk'] = array_chunk($data['personResult'], (ceil(count($data['personResult'])/$partCount)));
         $data['ResultChunk'] = array_chunk($data['Result'], (ceil(count($data['Result'])/$partCount)));
         $data['areaItemsChunk'] = array_chunk($data['areaItems'], (ceil(count($data['areaItems'])/$partCount)));
@@ -530,13 +535,14 @@ class Orders extends CI_Controller{
                 if(count($temp['personResult']) < 7){
                     $partCount = 1;
                 } else{
-                    $partCount = round(count($temp['personResult']) / 6) + 1;
+                    $partCount = round(count($temp['personResult']) / 7) + 1;
                 }
                 $temp['personResultChunk'] = array_chunk($temp['personResult'], (ceil(count($temp['personResult']) / $partCount)));
                 $temp['ResultChunk'] = array_chunk($temp['Result'], (ceil(count($temp['Result']) / $partCount)));
                 $temp['areaItemsChunk'] = array_chunk($temp['areaItems'], (ceil(count($temp['areaItems']) / $partCount)));
                 $temp['TableCount'] = sizeof($temp['personResultChunk']);
                 $temp['area'] = $area;
+                $temp['partCount'] = $partCount;
                 $temp['uuid'] = randomString();
                 array_push($totalResult, $temp);
             } else{

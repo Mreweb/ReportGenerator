@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/uploads/Score_0812743659.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" afterDir="false" />
     </list>
@@ -67,6 +74,7 @@
       <workItem from="1667739354783" duration="1193000" />
       <workItem from="1667889158889" duration="13734000" />
       <workItem from="1668242693745" duration="1582000" />
+      <workItem from="1668499064463" duration="1895000" />
     </task>
     <servers />
   </component>
@@ -81,6 +89,10 @@
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>
     <state x="-1137" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667739386642" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1668499408406">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1668499408406" />
     <state x="-1003" y="1" key="FileChooserDialogImpl" timestamp="1667978868460">
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>
@@ -90,6 +102,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666358427519" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1668499408406">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1668499408406" />
     <state x="-1111" y="159" key="run.anything.popup" timestamp="1667894496887">
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>

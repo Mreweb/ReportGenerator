@@ -17,7 +17,7 @@
                 </div>
                 <div class="row col-xs-12 card">
                     <div class="body">
-                        <div class="col-xs-12 table-responsive">
+                        <div class="col-xs-12">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>

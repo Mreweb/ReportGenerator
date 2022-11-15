@@ -1,7 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
         Chart.defaults.font.family = "Vazir";
-
         <?php
         foreach($TotalResult as $item) {
         if(!empty($item['personResult'])){
