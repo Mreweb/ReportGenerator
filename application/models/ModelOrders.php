@@ -1,5 +1,7 @@
 <?php
+
 class ModelOrders extends CI_Model{
+
     public function getAll()
     {
         $this->db->select('*');
@@ -35,10 +37,10 @@ class ModelOrders extends CI_Model{
         $limit = $inputs['pageIndex'];
          $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
-        $this->db->select('FirstName ,LastName , NationalCode , Tag , OrderId ');
+        $this->db->select('FirstName ,LastName , NationalCode , Tag , OrderId');
         $this->db->from('foundation_order_area_titles_scores');
-        $this->db->from('foundation_order_area_titles' , 'foundation_order_area_titles.FATId = foundation_order_area_titles_scores.FATId');
-        $this->db->from('foundation_order_area' , 'foundation_order_area.AreaId = foundation_order_area_titles.FATAreaId');
+        $this->db->join('foundation_order_area_titles' , 'foundation_order_area_titles.FATId = foundation_order_area_titles_scores.FATId');
+        $this->db->join('foundation_order_area' , 'foundation_order_area.AreaId = foundation_order_area_titles.FATAreaId');
         $this->db->where_in('foundation_order_area_titles_scores.FATId', $inputs['inputOrderFATIds']);
         if (isset($inputs['inputLastName']) && $inputs['inputLastName'] != '') {
             $this->db->like('LastName', $inputs['inputLastName']);

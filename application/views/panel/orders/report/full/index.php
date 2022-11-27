@@ -1,216 +1,213 @@
-<?php
-$_DIR = base_url('assets/adminpanel/');
-$CI =& get_instance();
-?>
-<script src="<?php echo $_DIR; ?>plugins/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url('assets/ui/js/chartjs-3.7.1.js') ?>"></script>
-<script src="<?php echo base_url('assets/ui/js/chartjs-plugin.js') ?>"></script>
-<script src="<?php echo base_url('assets/ui/js/chartjs-data-labels.js') ?>"></script>
-<link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet">
-<link href="<?php echo $_DIR; ?>css/materialize.css" rel="stylesheet"/>
-<link href="<?php echo $_DIR; ?>css/style.css" rel="stylesheet">
-<style type="text/css">
-    .row {
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    .rtl, .col-xs-12 {
-        padding: 0;
-    }
-
-    .result-container {
-        padding: 12px;
-        margin: 0;
-    }
-
-    .area-info {
-        display: inline-flex;
-    }
-
-    .area-info i {
-        font-size: 50px;
-        margin: 0px 5px;
-    }
-
-    .area-info b {
-        font-size: 26px;
-        margin: 10px 0;
-    }
-
-    .info strong {
-        background: #e8e895 !important;
-        padding: 6px 15px;
-        display: inline-flex;
-        float: right;
-    }
-
-    .info strong.dore {
-        background: #fff !important;
-        color: #000 !important;
-        font-size: 10px;
-        padding: 9px;
-    }
-
-    .info b {
-        background: #ffffa8 !important;
-        padding: 6px 20px;
-        display: inline-block;
-        float: left;
-        margin-bottom: 8px;
-        border-radius: 5px;
-        font-size: 14px;
-        min-width: 300px;
-    }
-
-    .area-title {
-        color: #0095ff !important;;
-        font-size: 16px;
-        margin: 0px;
-        margin-bottom: 8px;
-    }
-
-    .area-content {
-        text-align: justify;
-        direction: revert;
-        line-height: 20px;
-        font-size: 12px;
-    }
-
-    .color-guid {
-        display: inline-block;
-        width: 100%;
-        text-align: left;
-    }
-
-    .color-guid span {
-        display: inline-block;
-        width: 30px;
-        border: 1px solid #9f9f9f !important;;
-        float: left;
-        height: 15px;
-        float: left !important;
-    }
-
-    .level-1 {
-        background-color: #FF0000 !important;
-        color: #fff;
-    }
-
-    .level-2 {
-        background-color: #ff6600 !important;
-        color: #fff;
-    }
-
-    .level-3 {
-        background-color: #ff9900 !important;
-    }
-
-    .level-4 {
-        background-color: #FFCC00 !important;
-    }
-
-    .level-5 {
-        background-color: #FFFF00 !important;
-    }
-
-    .level-6 {
-        background-color: #ccff00 !important;
-    }
-
-    .level-7 {
-        background-color: #99ff00 !important;
-    }
-
-    .level-8 {
-        background-color: #66ff00 !important;
-    }
-
-    .level-9 {
-        background-color: #33ff00 !important;
-    }
-
-    .level-10 {
-        background-color: #57C84D !important;
-    }
-
-    table {
-        width: 100% !important;
-        margin-bottom: 10px;
-    }
-
-    .result-table tbody tr td,
-    .result-table tbody tr th {
-        padding: 2px;
-        border: 1px solid #aaa;
-        width: 14.2% !important;
-        font-size: 12px;
-    }
-
-    .sidebar, .navbar {
-        display: none;
-    }
-
-    section.content {
-        margin: 0 0 0 0 !important;
-    }
-
-    body,
-    .body,
-    .container-fluid,
-    .container,
-    .card {
-        padding: 0 !important;
-        margin: 0 !important;
-        direction: rtl;
-        text-align: justify;
-    }
-
-    canvas {
-        min-height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        height: auto !important;
-        width: auto !important;
-    }
-
-    @media print {
-        .col-xs-12 {
-            float: none;
-            width: auto;
+<?php $_DIR = base_url('assets/adminpanel/');
+$CI =& get_instance(); ?>
+    <script src="<?php echo $_DIR; ?>plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/ui/js/chartjs-3.7.1.js') ?>"></script>
+    <script src="<?php echo base_url('assets/ui/js/chartjs-plugin.js') ?>"></script>
+    <script src="<?php echo base_url('assets/ui/js/chartjs-data-labels.js') ?>"></script>
+    <link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="<?php echo $_DIR; ?>css/materialize.css" rel="stylesheet"/>
+    <link href="<?php echo $_DIR; ?>css/style.css" rel="stylesheet">
+    <style type="text/css">
+        .row {
+            margin-right: 0;
+            margin-left: 0;
         }
 
-        .break {
-            display: block;
-            width: 100%;
-            clear: both;
-            page-break-after: always;
-            float: none !important;
-            page-break-before: always;
-            break-after: always;
-            break-before: always;
+        .rtl, .col-xs-12 {
+            padding: 0;
         }
 
-        .section {
-            page-break-inside: avoid;
-            break-inside: avoid;
+        .result-container {
+            padding: 12px;
+            margin: 0;
         }
 
-        .d-block {
+        .area-info {
+            display: inline-flex;
+        }
+
+        .area-info i {
+            font-size: 50px;
+            margin: 0px 5px;
+        }
+
+        .area-info b {
+            font-size: 26px;
+            margin: 10px 0;
+        }
+
+        .info strong {
+            background: #e8e895 !important;
+            padding: 6px 15px;
+            display: inline-flex;
+            float: right;
+        }
+
+        .info strong.dore {
+            background: #fff !important;
+            color: #000 !important;
+            font-size: 10px;
+            padding: 9px;
+        }
+
+        .info b {
+            background: #ffffa8 !important;
+            padding: 6px 20px;
+            display: inline-block;
+            float: left;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            min-width: 300px;
+        }
+
+        .area-title {
+            color: #0095ff !important;;
+            font-size: 16px;
+            margin: 0px;
+            margin-bottom: 8px;
+        }
+
+        .area-content {
+            text-align: justify;
+            direction: revert;
+            line-height: 20px;
+            font-size: 12px;
+        }
+
+        .color-guid {
             display: inline-block;
             width: 100%;
+            text-align: left;
         }
-    }
 
-</style>
+        .color-guid span {
+            display: inline-block;
+            width: 30px;
+            border: 1px solid #9f9f9f !important;;
+            float: left;
+            height: 15px;
+            float: left !important;
+        }
 
-<div class="col-xs-12 d-block">
+        .level-1 {
+            background-color: #FF0000 !important;
+            color: #fff;
+        }
+
+        .level-2 {
+            background-color: #ff6600 !important;
+            color: #fff;
+        }
+
+        .level-3 {
+            background-color: #ff9900 !important;
+        }
+
+        .level-4 {
+            background-color: #FFCC00 !important;
+        }
+
+        .level-5 {
+            background-color: #FFFF00 !important;
+        }
+
+        .level-6 {
+            background-color: #ccff00 !important;
+        }
+
+        .level-7 {
+            background-color: #99ff00 !important;
+        }
+
+        .level-8 {
+            background-color: #66ff00 !important;
+        }
+
+        .level-9 {
+            background-color: #33ff00 !important;
+        }
+
+        .level-10 {
+            background-color: #57C84D !important;
+        }
+
+        table {
+            width: 100% !important;
+            margin-bottom: 10px;
+        }
+
+        .result-table tbody tr td,
+        .result-table tbody tr th {
+            padding: 2px;
+            border: 1px solid #aaa;
+            width: 14.2% !important;
+            font-size: 12px;
+        }
+
+        .sidebar, .navbar {
+            display: none;
+        }
+
+        section.content {
+            margin: 0 0 0 0 !important;
+        }
+
+        body,
+        .body,
+        .container-fluid,
+        .container,
+        .card {
+            padding: 0 !important;
+            margin: 0 !important;
+            direction: rtl;
+            text-align: justify;
+        }
+
+        canvas {
+            min-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto !important;
+            width: auto !important;
+        }
+
+        @media print {
+            .col-xs-12 {
+                float: none;
+                width: auto;
+            }
+
+            .break {
+                display: block;
+                width: 100%;
+                clear: both;
+                page-break-after: always;
+                float: none !important;
+                page-break-before: always;
+                break-after: always;
+                break-before: always;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .d-block {
+                display: inline-block;
+                width: 100%;
+            }
+        }
+
+    </style>
+    <div class="col-xs-12 d-block">
         <span class="pull-right area-info">
             <i class="material-icons">spellcheck</i>
             <b>نتایج</b>
         </span>
-    <span class="pull-left info">
+        <span class="pull-left info">
                 <strong class="text-danger">
                      نام و نام خانوادگی:
                     <?php echo $person['FirstName'] . " " . $person['LastName']; ?>
@@ -223,10 +220,8 @@ $CI =& get_instance();
                   <?php echo $order['OrderTitle']; ?>
               </strong>
         </span>
-</div>
-
-<?php
-foreach ($TotalResult as $item) {
+    </div>
+<?php foreach ($TotalResult as $item) {
     if ($item['area']['Tanasob'] == 0) {
         if (!empty($item['personResult'])) { ?>
             <?php
@@ -304,9 +299,7 @@ foreach ($TotalResult as $item) {
         <?php } ?>
     <?php }
 } ?>
-
-<?php
-foreach ($TotalResult as $item) {
+<?php foreach ($TotalResult as $item) {
     if ($item['area']['Tanasob'] == 1) {
         if (!empty($item['personResult'])) { ?>
             <?php
@@ -373,10 +366,7 @@ foreach ($TotalResult as $item) {
         <?php } ?>
     <?php }
 } ?>
-
-
-<?php
-foreach ($TotalResult as $item) {
+<?php foreach ($TotalResult as $item) {
     if ($item['area']['Tanasob'] == 1) {
         if (!empty($item['personResult'])) { ?>
             <?php
@@ -389,7 +379,8 @@ foreach ($TotalResult as $item) {
             <div class="section d-block">
                 <div class="col-xs-12 area-chart p-0">
                     <div class="col-xs-12 result-chart" style="height: 250px;width: 100% !important;">
-                        <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>" style="height: 250px;width: 100% !important;"></canvas>
+                        <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
+                                style="height: 250px;width: 100% !important;"></canvas>
                     </div>
                 </div>
             </div>
