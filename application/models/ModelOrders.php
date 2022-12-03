@@ -1,7 +1,5 @@
 <?php
-
 class ModelOrders extends CI_Model{
-
     public function getAll()
     {
         $this->db->select('*');

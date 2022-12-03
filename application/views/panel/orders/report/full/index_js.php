@@ -1,7 +1,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         Chart.defaults.font.family = "Vazir";
-        <?php foreach($TotalResult as $item) {
+        <?php
+        foreach($TotalResult as $item) {
         if(!empty($item['personResult'])){
             $area = $item['area'];
             $areaItems = $item['areaItems'];
@@ -22,9 +23,7 @@
                 datasets: [
                     {
                         label: "فرد",
-                        data: [<?php  foreach ($personResult as $temp) {
-                            echo $temp['FATScore'] . ",";
-                        }; ?>],
+                        data: [<?php  foreach ($personResult as $temp) { echo round($temp['FATScore']) . ","; }; ?>],
                         backgroundColor: [
                             'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)',
                             'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)', 'rgba(100, 149, 237,0.8)',
@@ -38,9 +37,7 @@
                     {
                         label: "میانگین سازمان",
                         fillColor: "red",
-                        data: [<?php  foreach ($Result as $temp) {
-                            echo $temp['AVG'] . ",";
-                        }; ?>],
+                        data: [<?php  foreach ($Result as $temp) { echo round($temp['AVG']) . ","; }; ?>],
                         backgroundColor: [
                             'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)',
                             'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)', 'rgba(100, 255, 0,0.8)',
@@ -64,21 +61,7 @@
                     }
                 }
             },
-            /*plugins: [ChartDataLabels],*/
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top'
-                },
-                datalabels: {
-                    anchor: 'end',
-                    align: 'top',
-                    formatter: Math.round,
-                    font: {
-                        weight: 'bold'
-                    }
-                }
-            }
+            plugins: [ChartDataLabels],
         });
 
         <?php } } ?>

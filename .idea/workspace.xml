@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/uploads/Score_0812743659.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/home/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="eu.ydp.idea.ts.spec.generator.settings.spec.template" value="import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';&#10;&#10;describe('$ClassName$', () =&gt; {&#10;  let $ObjName$:$ClassName$;&#10;&#10;  beforeEach(() =&gt; {&#10;    $ObjName$ = new $ClassName$();&#10;  });&#10;&#10;  describe('', () =&gt; {&#10;    it('', () =&gt; {&#10;      // given&#10;&#10;      // when&#10;&#10;      // then&#10;    });&#10;  });&#10;});&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DolatJavanSamtNew" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -74,7 +69,10 @@
       <workItem from="1667739354783" duration="1193000" />
       <workItem from="1667889158889" duration="13734000" />
       <workItem from="1668242693745" duration="1582000" />
-      <workItem from="1668499064463" duration="1895000" />
+      <workItem from="1668499064463" duration="5788000" />
+      <workItem from="1669446251986" duration="2467000" />
+      <workItem from="1669532100733" duration="70000" />
+      <workItem from="1670051229603" duration="11364000" />
     </task>
     <servers />
   </component>
@@ -85,18 +83,20 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1137" y="0" key="#Illuminated_Cloud" timestamp="1667739386642">
-      <screen x="-1366" y="0" width="1366" height="728" />
+    <state x="229" y="0" key="#Illuminated_Cloud" timestamp="1670051244162">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-1137" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667739386642" />
+    <state x="229" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1670051244162" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1668499408406">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1668499408406" />
-    <state x="-1003" y="1" key="FileChooserDialogImpl" timestamp="1667978868460">
-      <screen x="-1366" y="0" width="1366" height="728" />
+    <state x="363" y="1" key="FileChooserDialogImpl" timestamp="1670068108964">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="-1003" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667978868460" />
+    <state x="-1003" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1668506766718" />
+    <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1670068108964" />
     <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666701887009" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1666358427519">
       <screen x="0" y="0" width="1366" height="728" />

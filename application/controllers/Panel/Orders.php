@@ -226,7 +226,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/static/footer');
     }
     public function doOrderPersonsPagination(){
-        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = $this->input->post(NULL, TRUE); 
         $data = $this->ModelOrders->getOrderPersons($inputs);
         $data['htmlResult'] = $this->load->view('panel/orders/persons/pagination', $data, TRUE);
         unset($data['data']);
