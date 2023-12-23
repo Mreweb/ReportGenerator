@@ -73,6 +73,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputCommonFeatures">ویژگی های قالب</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control" name="inputCommonFeatures" id="inputCommonFeatures">
+                                                <option <?php setOptionSelected($area['CommonFeatures'] , 0); ?>   value="0">خیر</option>
+                                                <option <?php setOptionSelected($area['CommonFeatures'] , 1); ?>   value="1">بله</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputAreaTitle">تعداد ویژگی های قالب</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control"
+                                                <?php  setInputValue($area['CommonFeaturesCount']);?>
+                                                   maxlength="80" minlength="3"
+                                                   id="inputCommonFeaturesCount" name="inputCommonFeaturesCount"/>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12">
                                     <label class="required" for="inputAreaContent">توضیحات</label>
                                     <div class="form-group">

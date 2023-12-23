@@ -1,4 +1,5 @@
 <?php
+
 class ModelOrders extends CI_Model{
     public function getAll()
     {
@@ -200,6 +201,7 @@ class ModelOrders extends CI_Model{
         }
         return array();
     }
+
     public function doAddArea($inputs){
         $UserArray = array(
             'AreaTitle' => $inputs['inputAbilityTitle'],
@@ -209,6 +211,8 @@ class ModelOrders extends CI_Model{
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
             'BreakChart' => $inputs['inputBreakChart'],
+            'CommonFeatures' => $inputs['inputCommonFeatures'],
+            'CommonFeaturesCount' => $inputs['inputCommonFeaturesCount'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );
@@ -229,6 +233,8 @@ class ModelOrders extends CI_Model{
             'BreakContent' => $inputs['inputBreakContent'],
             'BreakTable' => $inputs['inputBreakTable'],
             'BreakChart' => $inputs['inputBreakChart'],
+            'CommonFeatures' => $inputs['inputCommonFeatures'],
+            'CommonFeaturesCount' => $inputs['inputCommonFeaturesCount'],
             'AreaDataType' => $inputs['inputAreaDataType'],
             'CreateDateTime' => time()
         );
@@ -242,6 +248,7 @@ class ModelOrders extends CI_Model{
             return $this->config->item('DBMessages')['SuccessAction'];
         }
     }
+
     public function doDeleteArea($inputs)
     {
         $this->db->trans_start();
@@ -317,7 +324,6 @@ class ModelOrders extends CI_Model{
         foreach ($items as $item) {
             array_push($fatIds , $item['FATId']);
         }
-
         $this->db->select('*');
         $this->db->from('foundation_order_area_titles_scores');
         if (isset($inputs['inputFirstName']) && $inputs['inputFirstName'] != '') {

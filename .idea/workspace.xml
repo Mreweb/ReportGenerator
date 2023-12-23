@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Score_1379824605.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Score_1863742059.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Score_2815943067.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Score_8126357490.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ReportGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ReportGenerator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/upload_area_items_score/pagination.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/assets/adminpanel/plugins/tinymce/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php7.4.33\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2GReFHUGP2sYKIQSM5v5SdiWMi7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -28,19 +72,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="eu.ydp.idea.ts.spec.generator.settings.spec.template" value="import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';&#10;&#10;describe('$ClassName$', () =&gt; {&#10;  let $ObjName$:$ClassName$;&#10;&#10;  beforeEach(() =&gt; {&#10;    $ObjName$ = new $ClassName$();&#10;  });&#10;&#10;  describe('', () =&gt; {&#10;    it('', () =&gt; {&#10;      // given&#10;&#10;      // when&#10;&#10;      // then&#10;    });&#10;  });&#10;});&#10;" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DolatJavanSamtNew" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/wamp64/www/RadinMy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\ReportGenerator\assets\ui\js" />
@@ -49,6 +96,7 @@
       <recent name="C:\wamp64\www\ReportGenerator\application\views\panel\orders\upload_area_items" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -73,42 +121,17 @@
       <workItem from="1669446251986" duration="2467000" />
       <workItem from="1669532100733" duration="70000" />
       <workItem from="1670051229603" duration="11364000" />
+      <workItem from="1702968705517" duration="496000" />
+      <workItem from="1702969401612" duration="14229000" />
+      <workItem from="1703008311966" duration="1904000" />
+      <workItem from="1703081242972" duration="611000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="229" y="0" key="#Illuminated_Cloud" timestamp="1670051244162">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="-1137" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667739386642" />
-    <state x="229" y="0" key="#Illuminated_Cloud/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1670051244162" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1668499408406">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1668499408406" />
-    <state x="363" y="1" key="FileChooserDialogImpl" timestamp="1670068108964">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="-1003" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1668506766718" />
-    <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1670068108964" />
-    <state x="363" y="1" key="FileChooserDialogImpl/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666701887009" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1666358427519">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="0" y="0" key="SettingsEditor/0.0.1366.728/-1920.-313.1920.1040@0.0.1366.728" timestamp="1666358427519" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1668499408406">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728/-1366.0.1366.728@0.0.1366.728" timestamp="1668499408406" />
-    <state x="-1111" y="159" key="run.anything.popup" timestamp="1667894496887">
-      <screen x="-1366" y="0" width="1366" height="728" />
-    </state>
-    <state x="-1111" y="159" key="run.anything.popup/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1667894496887" />
   </component>
 </project>

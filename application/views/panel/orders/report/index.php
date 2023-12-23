@@ -188,13 +188,52 @@ $CI =& get_instance();
         }
     }
 
+
+
+
+    .common {
+        text-align: right;
+    }
+
+    .common span {
+        float: right !important;
+        width: auto;
+        padding: 0;
+        font-size: 8px;
+        height: auto;
+    }
+
+    .common span b {
+        padding: 6px 6px;
+        display: inline-block;
+        float: right;
+    }
+
+    .common span b.intro {
+        background: #a6fca4;
+        color: #000;
+    }
+
+    .common span b.title {
+        background: #fadc63;
+        color: #000;
+    }
+
+    .common span b.score {
+        background: #fff3c4;
+        color: #000;
+    }
+
+
 </style>
 <input type="hidden" id="inputAreaId" <?php setInputValue($area['AreaId']); ?> />
     <p class="text-center" style="font-size: 18px;">
         بسمه تعالی
         <b style="float: left;font-size: 10px;margin: 0px 0px;position: absolute;left: 0;">
             شماره دوره:
-            <strong class="text-danger"><?php echo $order['OrderTitle']; ?></strong>
+            <strong class="text-danger">
+                <?php echo $order['OrderTitle']; ?>
+            </strong>
         </b>
     </p>
     <div class="col-xs-12 d-block">
@@ -205,9 +244,9 @@ $CI =& get_instance();
 
         <span class="pull-left info">
             <b>
-                                        نام و نام خانوادگی:
-                                        <strong class="text-danger"><?php echo $person['FirstName'] . " " . $person['LastName']; ?></strong>
-                                    </b>
+                نام و نام خانوادگی:
+                <strong class="text-danger"><?php echo $person['FirstName'] . " " . $person['LastName']; ?></strong>
+            </b>
             <br>
             <b>
                 <strong class="text-danger"><?php echo $person['Tag']; ?></strong>
@@ -222,7 +261,43 @@ $CI =& get_instance();
         <div class="break"></div>
     <?php } ?>
     <div class="section d-block">
-        <div class="col-xs-12 color-guid p-0">
+
+        <?php
+
+
+        $MaxScoreArray = array();
+        foreach ($personResult as $sc) {
+            $MaxScoreArray[] = $sc;
+        }
+        usort($MaxScoreArray, function ($a, $b) {
+            return $a['FATScore'] < $b['FATScore'];
+        });
+
+
+        ?>
+
+
+        <div class="col-xs-4 color-guid p-0 pull-right common" style="text-align: right">
+            <?php
+            if ($area['CommonFeatures'] == 1) { ?>
+                <span>
+                            <b class="intro">ویژگی های قالب</b>
+                        </span>
+                <?php for ($i = 0; $i < ($area['CommonFeaturesCount']); $i++) {
+                    foreach ($areaItems as $areaItem) {
+                        if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
+                            <span>
+                                            <b class="title"><?php echo $areaItem['FATTitle']; ?></b>
+                                            <b class="score"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
+                                        </span>
+                        <?php }
+                    }
+                }
+            }
+            ?>
+        </div>
+
+        <div class="col-xs-8 color-guid p-0">
             <span class="level-1"></span>
             <span class="level-2"></span>
             <span class="level-3"></span>
@@ -234,6 +309,8 @@ $CI =& get_instance();
             <span class="level-9"></span>
             <span class="level-10"></span>
         </div>
+
+
         <div class="col-xs-12 result-table p-0">
             <?php for ($i = 0; $i < $TableCount; $i++) { ?>
                 <?php
@@ -268,11 +345,11 @@ $CI =& get_instance();
         <div class="break"></div>
     <?php } ?>
     <div class="section d-block">
-        <div class="col-xs-12 area-chart p-0">
-            <div class="col-xs-12 result-chart" style="height: 350px;width: 100%;">
+        <div class="col-xs-12 area-chart p-0"  style="border: 3px dashed #ccc;margin: 15px 0;">
+            <div class="col-xs-12 result-chart" style="height: 350px;width: 100% !important;">
                 <h3 class="area-title">نتایج</h3>
                 <canvas id="ReghbatMinMaxAvgChart"
-                        style="height: 350px;width: 100%;"></canvas>
+                        style="height: 350px;width: 100% !important;"></canvas>
             </div>
         </div>
     </div>

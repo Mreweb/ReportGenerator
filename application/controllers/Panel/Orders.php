@@ -1,8 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Orders extends CI_Controller{
+
     private $loginInfo;
     public function __construct()
     {
@@ -408,12 +411,12 @@ class Orders extends CI_Controller{
         unset($data['data']);
         echo json_encode($data);
     }
-    public function doExportAreaScoreFile()
-    {
+    public function doExportAreaScoreFile(){
         $inputs = $this->input->post(NULL, TRUE);
         $areaItems = $this->ModelOrders->getAreaItemsByAreaId($inputs['inputAreaId']);
         require 'vendor/autoload.php';
         $spreadsheet = new Spreadsheet();
+
         $sheet = $spreadsheet->getActiveSheet();
         $indexCharacter = 0;
         $indexNumber = 1;
@@ -424,6 +427,9 @@ class Orders extends CI_Controller{
         foreach ($areaItems as $ai) {
             $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['FATTitle']);
         }
+
+
+
         $writer = new Xlsx($spreadsheet);
         $filename = 'Score_' . randomString() . '.xlsx';
         $writer->save('uploads/' . $filename);
@@ -449,9 +455,9 @@ class Orders extends CI_Controller{
 
         $data = array_filter($data);
         for($i=0;$i<sizeof($data);$i++){
+
             $data[$i] = array_filter($data[$i]);
         }
-
 
         if (sizeof($data[0]) - 4 != sizeof($areaItems)) {
             $msg = $this->config->item('DBMessages')['ErrorAction'];
@@ -524,6 +530,7 @@ class Orders extends CI_Controller{
             $data['person'] = $data['person'][0];
         }
         $data['order'] = $this->ModelOrders->getByOrderId($orderId);
+
         $data['area'] = $this->ModelOrders->getAreaByOrderId($orderId);
         $totalResult  = array();
         foreach ($data['area'] as $area){

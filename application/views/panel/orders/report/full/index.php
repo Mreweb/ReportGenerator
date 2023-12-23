@@ -80,7 +80,7 @@ $CI =& get_instance();
 
         .color-guid {
             display: inline-block;
-            width: 100%;
+            /*width: 100%;*/
             text-align: left;
         }
 
@@ -203,6 +203,40 @@ $CI =& get_instance();
             }
         }
 
+
+        .common {
+            text-align: right;
+        }
+
+        .common span {
+            float: right !important;
+            width: auto;
+            padding: 0;
+            font-size: 8px;
+            height: auto;
+        }
+
+        .common span b {
+            padding: 6px 6px;
+            display: inline-block;
+            float: right;
+        }
+
+        .common span b.intro {
+            background: #a6fca4;
+            color: #000;
+        }
+
+        .common span b.title {
+            background: #fadc63;
+            color: #000;
+        }
+
+        .common span b.score {
+            background: #fff3c4;
+            color: #000;
+        }
+
     </style>
 
     <div class="col-xs-12 d-block">
@@ -220,7 +254,7 @@ $CI =& get_instance();
                 </strong>
               <strong class="text-danger dore">
                   نسخه:
-                  <?php echo $order['OrderTitle']; ?>
+                  <?php echo $order['OrderTitle']; ?>c
               </strong>
         </span>
     </div>
@@ -234,6 +268,15 @@ foreach ($TotalResult as $item) {
             $areaItemsChunk = $item['areaItemsChunk'];
             $personResultChunk = $item['personResultChunk'];
             $ResultChunk = $item['ResultChunk'];
+            $MaxScoreArray = array();
+            foreach ($item['personResultChunk'] as $chunk) {
+                foreach ($chunk as $sc) {
+                    $MaxScoreArray[] = $sc;
+                }
+            }
+            usort($MaxScoreArray, function ($a, $b) {
+                return $a['FATScore'] < $b['FATScore'];
+            });
             ?>
             <div class="section d-block">
                 <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
@@ -244,7 +287,26 @@ foreach ($TotalResult as $item) {
                 <div class="break"></div>
             <?php } ?>
             <div class="section d-block">
-                <div class="col-xs-12 color-guid p-0">
+                <div class="col-xs-4 color-guid p-0 pull-right common" style="text-align: right">
+                    <?php
+                    if ($item['area']['CommonFeatures'] == 1) { ?>
+                        <span>
+                            <b class="intro">ویژگی های قالب</b>
+                        </span>
+                        <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
+                            foreach ($item['areaItems'] as $areaItem) {
+                                if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
+                                    <span>
+                                            <b class="title"><?php echo $areaItem['FATTitle']; ?></b>
+                                            <b class="score"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
+                                        </span>
+                                <?php }
+                            }
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="col-xs-8 color-guid p-0">
                     <span class="level-1"></span>
                     <span class="level-2"></span>
                     <span class="level-3"></span>
@@ -305,7 +367,8 @@ foreach ($TotalResult as $item) {
 }
 ?>
 
-    <h3 class="area-title" style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">تناسب</h3>
+    <h3 class="area-title"
+        style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">تناسب</h3>
     <div class="section d-block">
         <?php
         /*Print Descriptions*/
@@ -356,7 +419,7 @@ if ($TableCount > 0) {
 <?php
 $areaPrinted = false;
 $loop = -1;
-while ($loop < $TableCount-1) {
+while ($loop < $TableCount - 1) {
     $loop += 1;
     $moalefePrinted = false;
     foreach ($TotalResult as $item) {
@@ -379,7 +442,8 @@ while ($loop < $TableCount-1) {
                         ?>
                         <table style="margin: 0;">
                             <tr>
-                                <?php if (!$moalefePrinted) { $moalefePrinted = !$moalefePrinted; ?>
+                                <?php if (!$moalefePrinted) {
+                                    $moalefePrinted = !$moalefePrinted; ?>
                                     <td class="fit text-center" colspan="2">#</td>
                                     <?php foreach ($areaItemsTemp as $temp) { ?>
                                         <td class="fit text-center"><?php echo $temp['FATTitle']; ?></td>

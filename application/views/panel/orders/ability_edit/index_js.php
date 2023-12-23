@@ -9,6 +9,8 @@
             $inputBreakContent       = $.trim($("#inputBreakContent").val());
             $inputBreakTable       = $.trim($("#inputBreakTable").val());
             $inputBreakChart       = $.trim($("#inputBreakChart").val());
+            $inputCommonFeatures       = $.trim($("#inputCommonFeatures").val());
+            $inputCommonFeaturesCount      = $.trim($("#inputCommonFeaturesCount").val());
             toggleLoader();
             $sendData = {
                 'inputAreaId': $inputAreaId,
@@ -18,7 +20,9 @@
                 'inputTanasob': $inputTanasob,
                 'inputBreakContent': $inputBreakContent,
                 'inputBreakTable': $inputBreakTable,
-                'inputBreakChart': $inputBreakChart
+                'inputBreakChart': $inputBreakChart,
+                'inputCommonFeatures': $inputCommonFeatures,
+                'inputCommonFeaturesCount': $inputCommonFeaturesCount
             }
             $.ajax({
                 type: 'post',

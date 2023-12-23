@@ -12,16 +12,9 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td class="fit"><?php echo $item['NationalCode']; ?></td>
             <td class="fit"><?php echo pipeStatus($item['Tag']); ?></td>
             <td class="fit">
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="true">
-                        عملیات <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url('Panel/Orders/reportFull/') . $item['NationalCode'].'/'.$item['OrderId']; ?>">مشاهده نتایج</a></li>
-                    </ul>
-                </div>
-                <?php }  ?>
+                <a target="_blank" class="btn btn-primary" href="<?php echo base_url('Panel/Orders/reportFull/') . $item['NationalCode'].'/'.$item['OrderId']; ?>">مشاهده نتایج</a>
             </td>
+
         </tr>
+                <?php }  ?>
     <?php } ?>
