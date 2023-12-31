@@ -238,7 +238,7 @@ $CI =& get_instance();
     </p>
     <div class="col-xs-12 d-block">
         <span class="pull-right area-info">
-            <i class="material-icons">spellcheck</i>
+            <i class="material-icons">spellcheck</i>       
             <b>نتایج ارزیابی</b>
         </span>
 

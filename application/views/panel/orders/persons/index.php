@@ -17,6 +17,8 @@
                                 <input type="text" class="input-search" id="inputLastName" />
                                 <label for="inputNationalCode">کد ملی:</label>
                                 <input type="text" class="input-search" id="inputNationalCode" />
+                                <label for="inputTag">تگ </label>
+                                <input type="text" class="input-search" id="inputTag" />
                                 <button type="button" id="searchButton" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left btn-search">
                                     <i class="material-icons">search</i>
                                 </button>

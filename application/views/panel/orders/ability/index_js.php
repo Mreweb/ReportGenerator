@@ -7,7 +7,9 @@
             $inputAreaDataType       = $.trim($("#inputAreaDataType").val());
             $inputTanasob       = $.trim($("#inputTanasob").val());
             $inputBreakContent       = $.trim($("#inputBreakContent").val());
+            $inputBreakContentFont      = $.trim($("#inputBreakContentFont").val());
             $inputBreakTable       = $.trim($("#inputBreakTable").val());
+            $inputBreakTableFont      = $.trim($("#inputBreakTableFont").val());
             $inputBreakChart       = $.trim($("#inputBreakChart").val());
             $inputCommonFeatures       = $.trim($("#inputCommonFeatures").val());
             $inputCommonFeaturesCount      = $.trim($("#inputCommonFeaturesCount").val());
@@ -19,7 +21,9 @@
                 'inputAreaDataType': $inputAreaDataType,
                 'inputTanasob': $inputTanasob,
                 'inputBreakContent': $inputBreakContent,
+                'inputBreakContentFont': $inputBreakContentFont,
                 'inputBreakTable': $inputBreakTable,
+                'inputBreakTableFont': $inputBreakTableFont,
                 'inputBreakChart': $inputBreakChart,
                 'inputCommonFeatures': $inputCommonFeatures,
                 'inputCommonFeaturesCount': $inputCommonFeaturesCount

@@ -1,12 +1,16 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class Orders extends CI_Controller{
+class Orders extends CI_Controller
+{
+
 
     private $loginInfo;
+
     public function __construct()
     {
         parent::__construct();
@@ -17,6 +21,7 @@ class Orders extends CI_Controller{
         $this->load->model('ModelOrders');
         $this->load->model('ModelPerson');
     }
+
     public function index()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -28,6 +33,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/home/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doPagination()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -36,6 +42,7 @@ class Orders extends CI_Controller{
         unset($data['data']);
         echo json_encode($data);
     }
+
     public function add()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -48,6 +55,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/add/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doAdd()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -63,6 +71,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doAdd($inputs);
         echo json_encode($result);
     }
+
     public function edit($id)
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -75,6 +84,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEdit()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -100,6 +110,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doEdit($inputs);
         echo json_encode($result);
     }
+
     public function doDelete()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -115,6 +126,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doDelete($inputs);
         echo json_encode($result);
     }
+
     public function doCopy()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -209,7 +221,9 @@ class Orders extends CI_Controller{
          $this->ModelOrders->doUpdateAbilityToolsRelation($inputData);*/
         echo json_encode($this->config->item('DBMessages')['SuccessAction']);
     }
-    public function persons($orderId){
+
+    public function persons($orderId)
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'سفارشات';
         $inputs['pageIndex'] = 1;
@@ -217,9 +231,9 @@ class Orders extends CI_Controller{
         $data['orderArea'] = $this->ModelOrders->getAreaByOrderId($orderId);
         $data['FATIds'] = array();
         foreach ($data['orderArea'] as $item) {
-            $areaItems= $this->ModelOrders->getAreaItemsByAreaId($item['AreaId']);
+            $areaItems = $this->ModelOrders->getAreaItemsByAreaId($item['AreaId']);
             foreach ($areaItems as $areaItem) {
-                array_push( $data['FATIds'] , $areaItem['FATId']);
+                array_push($data['FATIds'], $areaItem['FATId']);
             }
         }
         $this->load->view('panel/static/header', $data);
@@ -228,13 +242,16 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/persons/index_js');
         $this->load->view('panel/static/footer');
     }
-    public function doOrderPersonsPagination(){
-        $inputs = $this->input->post(NULL, TRUE); 
+
+    public function doOrderPersonsPagination()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
         $data = $this->ModelOrders->getOrderPersons($inputs);
         $data['htmlResult'] = $this->load->view('panel/orders/persons/pagination', $data, TRUE);
         unset($data['data']);
         echo json_encode($data);
     }
+
     public function area($orderId){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['Enum'] = $this->config->item('Enum');
@@ -248,6 +265,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/ability/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doAddArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -263,6 +281,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doAddArea($inputs);
         echo json_encode($result);
     }
+
     public function editArea($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -274,6 +293,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/ability_edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEditArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -289,6 +309,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doEditArea($inputs);
         echo json_encode($result);
     }
+
     public function doDeleteArea()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -304,6 +325,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doDeleteArea($inputs);
         echo json_encode($result);
     }
+
     public function uploadItems($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -316,6 +338,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/upload_area_items/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doUploadItems()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -347,6 +370,7 @@ class Orders extends CI_Controller{
         $result = $this->config->item('DBMessages')['SuccessAction'];
         echo json_encode($result);
     }
+
     public function editAreaItem($id){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
@@ -358,6 +382,7 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/area_item_edit/index_js');
         $this->load->view('panel/static/footer');
     }
+
     public function doEditAreaItem()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -373,6 +398,7 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doEditAreaItem($inputs);
         echo json_encode($result);
     }
+
     public function doDeleteAreaItem()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -388,7 +414,9 @@ class Orders extends CI_Controller{
         $result = $this->ModelOrders->doDeleteAreaItem($inputs);
         echo json_encode($result);
     }
-    public function uploadItemsScore($id){
+
+    public function uploadItemsScore($id)
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
         $data['Enum'] = $this->config->item('Enum');
@@ -400,18 +428,22 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/upload_area_items_score/index_js');
         $this->load->view('panel/static/footer');
     }
-    public function doOrderAreaScorePagination(){
+
+    public function doOrderAreaScorePagination()
+    {
         $inputs = $this->input->post(NULL, TRUE);
         $data = $this->ModelOrders->getOrderAreaScore($inputs);
         $data['inputAreaId'] = $inputs['inputAreaId'];
-        $data['area'] = $this->ModelOrders->getAreaByAreaId( $inputs['inputAreaId']);
+        $data['area'] = $this->ModelOrders->getAreaByAreaId($inputs['inputAreaId']);
         $data['order'] = $this->ModelOrders->getByOrderId($data['area']['OrderId']);
         $data['itemCount'] = $inputs['inputAreaItemsCount'];
         $data['htmlResult'] = $this->load->view('panel/orders/upload_area_items_score/pagination', $data, TRUE);
         unset($data['data']);
         echo json_encode($data);
     }
-    public function doExportAreaScoreFile(){
+
+    public function doExportAreaScoreFile()
+    {
         $inputs = $this->input->post(NULL, TRUE);
         $areaItems = $this->ModelOrders->getAreaItemsByAreaId($inputs['inputAreaId']);
         require 'vendor/autoload.php';
@@ -429,7 +461,6 @@ class Orders extends CI_Controller{
         }
 
 
-
         $writer = new Xlsx($spreadsheet);
         $filename = 'Score_' . randomString() . '.xlsx';
         $writer->save('uploads/' . $filename);
@@ -439,7 +470,9 @@ class Orders extends CI_Controller{
             )
         );
     }
-    public function doImportAreaScoreFile(){
+
+    public function doImportAreaScoreFile()
+    {
         $inputs = $this->input->post(NULL, TRUE);
         $areaItems = $this->ModelOrders->getAreaItemsByAreaId($inputs['inputAreaId']);
         $inputFileName = $_FILES["file"]['tmp_name'];
@@ -454,7 +487,7 @@ class Orders extends CI_Controller{
         $data = $worksheet->toArray();
 
         $data = array_filter($data);
-        for($i=0;$i<sizeof($data);$i++){
+        for ($i = 0; $i < sizeof($data); $i++) {
 
             $data[$i] = array_filter($data[$i]);
         }
@@ -467,15 +500,15 @@ class Orders extends CI_Controller{
         }
         $totalSizeItems = sizeof($areaItems);
         for ($i = 1; $i < sizeof($data); $i++) {
-            for($j=0;$j<$totalSizeItems;$j++){
-                $this->db->delete('foundation_order_area_titles_scores',  array( 'NationalCode' => $data[$i][2],  'FATId' => $areaItems[$j]['FATId']));
+            for ($j = 0; $j < $totalSizeItems; $j++) {
+                $this->db->delete('foundation_order_area_titles_scores', array('NationalCode' => $data[$i][2], 'FATId' => $areaItems[$j]['FATId']));
                 $this->db->insert('foundation_order_area_titles_scores',
                     array(
                         'FirstName' => $data[$i][0],
                         'LastName' => $data[$i][1],
                         'NationalCode' => $data[$i][2],
                         'Tag' => $data[$i][3],
-                        'FATScore' => $data[$i][$j+4],
+                        'FATScore' => $data[$i][$j + 4],
                         'FATId' => $areaItems[$j]['FATId'],
                         'CreateDateTime' => time()
                     )
@@ -485,7 +518,9 @@ class Orders extends CI_Controller{
         $result = $this->config->item('DBMessages')['SuccessAction'];
         echo json_encode($result);
     }
-    public function report($nationalCode,$areaId){
+
+    public function report($nationalCode, $areaId)
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
         $data['Enum'] = $this->config->item('Enum');
@@ -496,21 +531,21 @@ class Orders extends CI_Controller{
         $data['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($areaId);
 
         $data['person'] = $this->ModelPerson->getPersonByNationalCode($nationalCode);
-        if(isset($data['person'][0])){
+        if (isset($data['person'][0])) {
             $data['person'] = $data['person'][0];
         }
-        $data['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$areaId);
+        $data['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode, $areaId);
         $data['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($areaId);
 
-         if(count($data['personResult']) < 7){
+        if (count($data['personResult']) < 7) {
             $partCount = 1;
-        } else{
+        } else {
             $partCount = round(count($data['personResult']) / 6) + 1;
         }
 
-        $data['personResultChunk'] = array_chunk($data['personResult'], (ceil(count($data['personResult'])/$partCount)));
-        $data['ResultChunk'] = array_chunk($data['Result'], (ceil(count($data['Result'])/$partCount)));
-        $data['areaItemsChunk'] = array_chunk($data['areaItems'], (ceil(count($data['areaItems'])/$partCount)));
+        $data['personResultChunk'] = array_chunk($data['personResult'], (ceil(count($data['personResult']) / $partCount)));
+        $data['ResultChunk'] = array_chunk($data['Result'], (ceil(count($data['Result']) / $partCount)));
+        $data['areaItemsChunk'] = array_chunk($data['areaItems'], (ceil(count($data['areaItems']) / $partCount)));
         $data['TableCount'] = sizeof($data['personResultChunk']);
 
 
@@ -521,27 +556,29 @@ class Orders extends CI_Controller{
         //$this->load->view('panel/static/footer');
 
     }
-    public function reportFull($nationalCode , $orderId){
+
+    public function reportFull($nationalCode, $orderId)
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = 'ویرایش سفارش';
         $data['Enum'] = $this->config->item('Enum');
         $data['person'] = $this->ModelPerson->getPersonByNationalCode($nationalCode);
-        if(isset($data['person'][0])){
+        if (isset($data['person'][0])) {
             $data['person'] = $data['person'][0];
         }
         $data['order'] = $this->ModelOrders->getByOrderId($orderId);
 
         $data['area'] = $this->ModelOrders->getAreaByOrderId($orderId);
-        $totalResult  = array();
-        foreach ($data['area'] as $area){
+        $totalResult = array();
+        foreach ($data['area'] as $area) {
             $temp = array();
             $temp['areaItems'] = $this->ModelOrders->getAreaItemsByAreaId($area['AreaId']);
-            $temp['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode,$area['AreaId']);
-            if(!empty($temp['personResult'])) {
+            $temp['personResult'] = $this->ModelOrders->getPersonResultByNationalCode($nationalCode, $area['AreaId']);
+            if (!empty($temp['personResult'])) {
                 $temp['Result'] = $this->ModelOrders->getOrganizationAVGResultByAreaId($area['AreaId']);
-                if(count($temp['personResult']) < 7){
+                if (count($temp['personResult']) < 7) {
                     $partCount = 1;
-                } else{
+                } else {
                     $partCount = round(count($temp['personResult']) / 7) + 1;
                 }
                 $temp['personResultChunk'] = array_chunk($temp['personResult'], (ceil(count($temp['personResult']) / $partCount)));
@@ -552,7 +589,7 @@ class Orders extends CI_Controller{
                 $temp['partCount'] = $partCount;
                 $temp['uuid'] = randomString();
                 array_push($totalResult, $temp);
-            } else{
+            } else {
                 array_push($totalResult, $temp);
             }
         }
@@ -562,5 +599,85 @@ class Orders extends CI_Controller{
         $this->load->view('panel/orders/report/full/index_css');
         $this->load->view('panel/orders/report/full/index_js', $data);
         //$this->load->view('panel/static/footer');
+    }
+
+    public function download($orderId)
+    {
+        $order = $this->ModelOrders->getByOrderId($orderId);
+        $orderArea = $this->ModelOrders->getAreaByOrderId($orderId);
+        $index = 0;
+        foreach ($orderArea as $item) {
+            $orderArea[$index++] ['Titles'] = $this->ModelOrders->getAreaItemsByAreaId($item['AreaId']);
+        }
+
+        $data['FATIds'] = array();
+        foreach ($orderArea as $item) {
+            $areaItems = $this->ModelOrders->getAreaItemsByAreaId($item['AreaId']);
+            foreach ($areaItems as $areaItem) {
+                array_push($data['FATIds'], $areaItem['FATId']);
+            }
+        }
+        $orderPersons = $this->ModelOrders->getOrderAllPersons($data['FATIds'] , true);
+        $orderPersonsNoGroup = $this->ModelOrders->getOrderAllPersons($data['FATIds'] , false);
+
+        //$orderPersons = array($orderPersons[0]);
+
+        $index = 0;
+        foreach ($orderPersons as $op) {
+            $indexArea = 0;
+            foreach ($orderArea as $area) {
+                foreach ($area['Titles'] as $title) {
+                    $score['FATScore'] = '-';
+                    foreach ($orderPersonsNoGroup as $tempOP) {
+                        if ($tempOP['FATId'] == $title['FATId'] && $tempOP['NationalCode'] == $op['NationalCode'] && $tempOP['FATAreaId'] == $area['AreaId'] ) {
+                            $score['FATScore'] = round($tempOP['FATScore'], 2);
+                        }
+                    }
+                    $orderPersons[$index]['Area'] = $area['AreaTitle'];
+                    $orderPersons[$index]['AreaTitles'][$indexArea]['FATTitle'] = $title['FATTitle'];
+                    $orderPersons[$index]['AreaTitles'][$indexArea]['FATScore'] = $score['FATScore'];
+                    $indexArea += 1;
+                }
+            }
+            $index += 1;
+        }
+
+        require 'vendor/autoload.php';
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $indexCharacter = 0;
+        $indexNumber = 3;
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'نام');
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'نام خانوادگی');
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'کد ملی');
+        $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, 'تگ');
+        $indexNumber = 1;
+        foreach ($orderArea as $oa) {
+            foreach ($oa['Titles'] as $item) {
+                $sheet->setCellValue(columnFromIndex($indexCharacter) . $indexNumber, $oa['AreaTitle']);
+                $sheet->setCellValue(columnFromIndex($indexCharacter++) . ($indexNumber + 1), $item['FATTitle']);
+            }
+        }
+
+
+        $indexNumber = 3;
+        foreach ($orderPersons as $ai) {
+            $indexCharacter = 0;
+            $indexNumber += 1;
+            $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['FirstName']);
+            $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['LastName']);
+            $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['NationalCode']);
+            $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, $ai['Tag']);
+            foreach ($ai['AreaTitles'] as $oa) {
+                $sheet->setCellValue(columnFromIndex($indexCharacter++) . $indexNumber, round($oa['FATScore'], 2));
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'Score_' . randomString() . '.xlsx';
+        $writer->save('uploads/' . $filename);
+        redirect(base_url('uploads/' . $filename));
+
     }
 }

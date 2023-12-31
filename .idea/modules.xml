@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../KoofaPrint/.idea/KoofaPrint.iml" filepath="$PROJECT_DIR$/../KoofaPrint/.idea/KoofaPrint.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ReportGenerator.iml" filepath="$PROJECT_DIR$/.idea/ReportGenerator.iml" />
     </modules>
   </component>

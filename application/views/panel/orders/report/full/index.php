@@ -65,17 +65,17 @@ $CI =& get_instance();
         }
 
         .area-title {
-            color: #0095ff !important;;
-            font-size: 16px;
+            color: #0095ff !important;
+            font-size: 20px;
             margin: 0px;
             margin-bottom: 8px;
         }
 
         .area-content {
             text-align: justify;
-            direction: revert;
+            direction: rtl;
             line-height: 20px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .color-guid {
@@ -182,7 +182,7 @@ $CI =& get_instance();
             }
 
             .break {
-                display: block;
+                display: inline-block;
                 width: 100%;
                 clear: both;
                 page-break-after: always;
@@ -223,18 +223,24 @@ $CI =& get_instance();
         }
 
         .common span b.intro {
-            background: #a6fca4;
-            color: #000;
+
+            background: #a6fca4 !important;
+            color: #000 !important;
         }
 
         .common span b.title {
-            background: #fadc63;
-            color: #000;
+            background: #fadc63 !important;
+            color: #000 !important;
         }
 
         .common span b.score {
-            background: #fff3c4;
-            color: #000;
+            background: #fff3c4 !important;
+            color: #000 !important;
+        }
+
+        .d-block{
+            display: inline-block;
+            width: 100%;
         }
 
     </style>
@@ -254,7 +260,7 @@ $CI =& get_instance();
                 </strong>
               <strong class="text-danger dore">
                   نسخه:
-                  <?php echo $order['OrderTitle']; ?>c
+                  <?php echo $order['OrderTitle']; ?>
               </strong>
         </span>
     </div>
@@ -281,24 +287,25 @@ foreach ($TotalResult as $item) {
             <div class="section d-block">
                 <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
                 <div class="area-content"
-                     style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
+                     style="line-height: 25px;font-size:<?php echo $area['BreakContentFont']; ?>px"><?php echo nl2br($area['AreaContent']); ?></div>
             </div>
             <?php if ($area['BreakContent'] == 1) { ?>
                 <div class="break"></div>
             <?php } ?>
             <div class="section d-block">
-                <div class="col-xs-4 color-guid p-0 pull-right common" style="text-align: right">
+                <div class="col-xs-12 color-guid p-0 pull-right common" style="text-align: right;margin-bottom:8px;">
                     <?php
                     if ($item['area']['CommonFeatures'] == 1) { ?>
-                        <span>
-                            <b class="intro">ویژگی های قالب</b>
+                        <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
+                            <b class="intro">ویژگی های برجسته</b>
                         </span>
                         <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
                             foreach ($item['areaItems'] as $areaItem) {
                                 if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
-                                    <span>
+                                    <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
                                             <b class="title"><?php echo $areaItem['FATTitle']; ?></b>
-                                            <b class="score"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
+                                            <b class="score"
+                                               style="display: none;"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
                                         </span>
                                 <?php }
                             }
@@ -306,7 +313,7 @@ foreach ($TotalResult as $item) {
                     }
                     ?>
                 </div>
-                <div class="col-xs-8 color-guid p-0">
+                <div class="col-xs-12 color-guid p-0 pull-left">
                     <span class="level-1"></span>
                     <span class="level-2"></span>
                     <span class="level-3"></span>
@@ -327,21 +334,30 @@ foreach ($TotalResult as $item) {
                         ?>
                         <table style="margin: 15px 0;">
                             <tr>
-                                <td class="fit text-center">مولفه</td>
+                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
+                                    مولفه
+                                </td>
                                 <?php foreach ($areaItemsTemp as $temp) { ?>
-                                    <td class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
+                                    <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                        class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
                                 <?php } ?>
                             </tr>
                             <tr>
-                                <td class="fit text-center">نمره فرد</td>
+                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
+                                    نمره فرد
+                                </td>
                                 <?php foreach ($personResultTemp as $temp) { ?>
-                                    <td class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
+                                    <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                        class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
                                 <?php } ?>
                             </tr>
                             <tr>
-                                <td class="fit text-center">میانگین سازمان</td>
+                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
+                                    میانگین سازمان
+                                </td>
                                 <?php foreach ($ResultTemp as $temp) { ?>
-                                    <td class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
+                                    <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                        class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
                                 <?php } ?>
                             </tr>
                         </table>

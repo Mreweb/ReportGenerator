@@ -52,6 +52,17 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakContentFont">اندازه فونت متن</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control"
+                                                   maxlength="80" minlength="3"
+                                                <?php  setInputValue($area['BreakContentFont']);?>
+                                                   id="inputBreakContentFont" name="inputBreakContentFont"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
                                     <label class="required" for="inputBreakTable">شکستن جدول</label>
                                     <div class="form-group">
                                         <div class="form-line">
@@ -59,6 +70,17 @@
                                                 <option <?php setOptionSelected($area['BreakTable'] , 0); ?>   value="0">خیر</option>
                                                 <option <?php setOptionSelected($area['BreakTable'] , 1); ?>   value="1">بله</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <label class="required" for="inputBreakTableFont">اندازه فونت جدول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control"
+                                                   maxlength="80" minlength="3"
+                                                <?php  setInputValue($area['BreakTableFont']);?>
+                                                   id="inputBreakTableFont" name="inputBreakTableFont"/>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputCommonFeatures">ویژگی های قالب</label>
+                                    <label class="required" for="inputCommonFeatures">ویژگی های برجسته</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <select class="form-control" name="inputCommonFeatures" id="inputCommonFeatures">
@@ -85,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <label class="required" for="inputAreaTitle">تعداد ویژگی های قالب</label>
+                                    <label class="required" for="inputAreaTitle">تعداد ویژگی های برجسته</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"

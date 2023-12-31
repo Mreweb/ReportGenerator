@@ -11,6 +11,7 @@
             'inputOrderFATIds': $("#inputOrderFATIds").val(),
             'inputLastName': $("#inputLastName").val(),
             'inputNationalCode': $("#inputNationalCode").val(),
+            'inputTag': $("#inputTag").val(),
             'pageIndex': selectedPage
         }
         $.ajax({

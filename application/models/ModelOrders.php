@@ -47,6 +47,9 @@ class ModelOrders extends CI_Model{
         if (isset($inputs['inputNationalCode']) && $inputs['inputNationalCode'] != '') {
             $this->db->where('NationalCode', $inputs['inputNationalCode']);
         }
+        if (isset($inputs['inputTag']) && $inputs['inputTag'] != '') {
+            $this->db->like('Tag', $inputs['inputTag']);
+        }
         $this->db->group_by('NationalCode');
         $tempDb = clone $this->db;
         $result['count'] = $tempDb->get()->num_rows();
@@ -59,6 +62,28 @@ class ModelOrders extends CI_Model{
             $result['data'] = false;
         }
         return $result;
+    }
+    public function getOrderAllPersons($ids , $group = false){
+        $this->db->select('*');
+        $this->db->from('foundation_order_area_titles_scores');
+        $this->db->join('foundation_order_area_titles' , 'foundation_order_area_titles.FATId = foundation_order_area_titles_scores.FATId');
+        $this->db->join('foundation_order_area' , 'foundation_order_area.AreaId = foundation_order_area_titles.FATAreaId');
+        $this->db->where_in('foundation_order_area_titles_scores.FATId' , $ids);
+        $this->db->order_by('foundation_order_area.AreaId' , 'ASC');
+        if($group) {
+            $this->db->group_by('NationalCode', 'ASC');
+        }
+        return  $this->db->get()->result_array();
+    }
+    public function getOrderAllPersonsByAreaIdFATId($AreaId , $FATId){
+        $this->db->select('*');
+        $this->db->from('foundation_order_area_titles_scores');
+        $this->db->join('foundation_order_area_titles' , 'foundation_order_area_titles.FATId = foundation_order_area_titles_scores.FATId');
+        $this->db->join('foundation_order_area' , 'foundation_order_area.AreaId = foundation_order_area_titles.FATAreaId');
+        $this->db->where('foundation_order_area.AreaId' , $AreaId);
+        $this->db->where('foundation_order_area_titles.FATId' , $FATId);
+        $this->db->order_by('foundation_order_area.AreaId' , 'ASC');
+        return  $this->db->get()->result_array();
     }
     public function getByManagerId($inputs)
     {
@@ -209,7 +234,9 @@ class ModelOrders extends CI_Model{
             'AreaContent' => $inputs['inputAreaContent'],
             'Tanasob' => $inputs['inputTanasob'],
             'BreakContent' => $inputs['inputBreakContent'],
+            'BreakContentFont' => $inputs['inputBreakContentFont'],
             'BreakTable' => $inputs['inputBreakTable'],
+            'BreakTableFont' => $inputs['inputBreakTableFont'],
             'BreakChart' => $inputs['inputBreakChart'],
             'CommonFeatures' => $inputs['inputCommonFeatures'],
             'CommonFeaturesCount' => $inputs['inputCommonFeaturesCount'],
@@ -231,7 +258,9 @@ class ModelOrders extends CI_Model{
             'AreaContent' => $inputs['inputAreaContent'],
             'Tanasob' => $inputs['inputTanasob'],
             'BreakContent' => $inputs['inputBreakContent'],
+            'BreakContentFont' => $inputs['inputBreakContentFont'],
             'BreakTable' => $inputs['inputBreakTable'],
+            'BreakTableFont' => $inputs['inputBreakTableFont'],
             'BreakChart' => $inputs['inputBreakChart'],
             'CommonFeatures' => $inputs['inputCommonFeatures'],
             'CommonFeaturesCount' => $inputs['inputCommonFeaturesCount'],
