@@ -142,10 +142,14 @@ $CI =& get_instance();
 
         .result-table tbody tr td,
         .result-table tbody tr th {
-            padding: 2px;
+        / padding: 2 px;
             border: 1px solid #aaa;
             width: 14.2% !important;
             font-size: 12px;
+
+            /*padding: 2px;
+            border: 1px solid #aaa;
+            font-size: 12px;*/
         }
 
         .sidebar, .navbar {
@@ -175,33 +179,6 @@ $CI =& get_instance();
             width: auto !important;
         }
 
-        @media print {
-            .col-xs-12 {
-                float: none;
-                width: auto;
-            }
-
-            .break {
-                display: inline-block;
-                width: 100%;
-                clear: both;
-                page-break-after: always;
-                float: none !important;
-                page-break-before: always;
-                break-after: always;
-                break-before: always;
-            }
-
-            .section {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            .d-block {
-                display: inline-block;
-                width: 100%;
-            }
-        }
 
 
         .common {
@@ -238,9 +215,45 @@ $CI =& get_instance();
             color: #000 !important;
         }
 
-        .d-block{
+        .d-block {
             display: inline-block;
             width: 100%;
+        }
+
+
+        table .fit {
+            width: 1%;
+            white-space: normal;
+            text-align: center;
+            min-width: 60px;
+        }
+
+
+        @media print {
+            .col-xs-12 {
+                float: none;
+                width: auto;
+            }
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .d-block {
+                display: inline-block;
+                width: 100%;
+            }
+
+            .break {
+                /* display: inline-block;
+                 width: 100%;
+                 clear: both;*/
+                page-break-after: always;
+                float: none !important;
+                /*page-break-before: always;*/
+                /*break-after: always;
+                break-before: always;*/
+            }
         }
 
     </style>
@@ -275,122 +288,123 @@ foreach ($TotalResult as $item) {
             $personResultChunk = $item['personResultChunk'];
             $ResultChunk = $item['ResultChunk'];
             $MaxScoreArray = array();
+            $hasScore = false;
             foreach ($item['personResultChunk'] as $chunk) {
                 foreach ($chunk as $sc) {
                     $MaxScoreArray[] = $sc;
+                    if ($sc['FATScore'] != null) {
+                        $hasScore = true;
+                    }
                 }
             }
             usort($MaxScoreArray, function ($a, $b) {
                 return $a['FATScore'] < $b['FATScore'];
             });
             ?>
-            <div class="section d-block">
-                <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
-                <div class="area-content"
-                     style="line-height: 25px;font-size:<?php echo $area['BreakContentFont']; ?>px"><?php echo nl2br($area['AreaContent']); ?></div>
-            </div>
-            <?php if ($area['BreakContent'] == 1) { ?>
-                <div class="break"></div>
-            <?php } ?>
-            <div class="section d-block">
-                <div class="col-xs-12 color-guid p-0 pull-right common" style="text-align: right;margin-bottom:8px;">
-                    <?php
-                    if ($item['area']['CommonFeatures'] == 1) { ?>
-                        <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
-                            <b class="intro">ویژگی های برجسته</b>
-                        </span>
-                        <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
-                            foreach ($item['areaItems'] as $areaItem) {
-                                if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
-                                    <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
+            <?php if ($hasScore) { ?>
+                <div class="section d-block">
+                    <h3 class="area-title"><?php echo $area['AreaTitle']; ?></h3>
+                    <div class="area-content"
+                         style="line-height: 25px;font-size:<?php echo $area['BreakContentFont']; ?>px"><?php echo nl2br($area['AreaContent']); ?></div>
+                </div>
+                <?php if ($area['BreakContent'] == 1) { echo '<div class="break"></div>'; } ?>
+                <div class="section d-block">
+                    <div class="col-xs-12 color-guid p-0 pull-right common"  style="text-align: right;margin-bottom:8px;">
+                        <?php if ($item['area']['CommonFeatures'] == 1) { ?>
+                            <span style="font-size:<?php echo $area['BreakTableFont']; ?>px"><b class="intro">ویژگی های برجسته</b></span>
+                            <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
+                                foreach ($item['areaItems'] as $areaItem) {
+                                    if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
+                                        <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
                                             <b class="title"><?php echo $areaItem['FATTitle']; ?></b>
-                                            <b class="score"
-                                               style="display: none;"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
+                                            <b class="score"  style="display: none;"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
                                         </span>
-                                <?php }
+                                    <?php }
+                                }
                             }
                         }
-                    }
-                    ?>
-                </div>
-                <div class="col-xs-12 color-guid p-0 pull-left">
-                    <span class="level-1"></span>
-                    <span class="level-2"></span>
-                    <span class="level-3"></span>
-                    <span class="level-4"></span>
-                    <span class="level-5"></span>
-                    <span class="level-6"></span>
-                    <span class="level-7"></span>
-                    <span class="level-8"></span>
-                    <span class="level-9"></span>
-                    <span class="level-10"></span>
-                </div>
-                <div class="col-xs-12 result-table p-0">
-                    <?php for ($i = 0; $i < $TableCount; $i++) { ?>
-                        <?php
-                        $areaItemsTemp = $areaItemsChunk[$i];
-                        $personResultTemp = $personResultChunk[$i];
-                        $ResultTemp = $ResultChunk[$i];
                         ?>
-                        <table style="margin: 15px 0;">
-                            <tr>
-                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
-                                    مولفه
-                                </td>
-                                <?php foreach ($areaItemsTemp as $temp) { ?>
+                    </div>
+                    <div class="col-xs-12 color-guid p-0 pull-left">
+                        <span class="level-1"></span>
+                        <span class="level-2"></span>
+                        <span class="level-3"></span>
+                        <span class="level-4"></span>
+                        <span class="level-5"></span>
+                        <span class="level-6"></span>
+                        <span class="level-7"></span>
+                        <span class="level-8"></span>
+                        <span class="level-9"></span>
+                        <span class="level-10"></span>
+                    </div>
+                    <div class="col-xs-12 result-table p-0">
+                        <?php for ($i = 0; $i < $TableCount; $i++) {
+                            $areaItemsTemp = $areaItemsChunk[$i];
+                            $personResultTemp = $personResultChunk[$i];
+                            $ResultTemp = $ResultChunk[$i];
+                            ?>
+                            <table style="margin: 15px 0;">
+                                <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
-                                        class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
-                                <?php } ?>
-                            </tr>
-                            <tr>
-                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
-                                    نمره فرد
-                                </td>
-                                <?php foreach ($personResultTemp as $temp) { ?>
+                                        class="fit text-center">
+                                        مولفه
+                                    </td>
+                                    <?php foreach ($areaItemsTemp as $temp) { ?>
+                                        <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                            class="fit text-center"><?php echo $temp['FATTitle']; ?></td>
+                                    <?php } ?>
+                                </tr>
+                                <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
-                                        class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
-                                <?php } ?>
-                            </tr>
-                            <tr>
-                                <td style="font-size:<?php echo $area['BreakTableFont']; ?>px" class="fit text-center">
-                                    میانگین سازمان
-                                </td>
-                                <?php foreach ($ResultTemp as $temp) { ?>
+                                        class="fit text-center">
+                                        نمره فرد
+                                    </td>
+                                    <?php foreach ($personResultTemp as $temp) { ?>
+                                        <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                            class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
+                                    <?php } ?>
+                                </tr>
+                                <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
-                                        class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
-                                <?php } ?>
-                            </tr>
-                        </table>
-                    <?php } ?>
-                </div>
-            </div>
-            <?php if ($area['BreakTable'] == 1) { ?>
-                <div class="break"></div>
-            <?php } ?>
-            <div class="section d-block">
-                <div class="col-xs-12 area-chart p-0" style="border: 3px dashed #ccc;margin: 15px 0;">
-                    <div class="col-xs-12 result-chart" style="height: 250px;width: 100% !important;">
-                        <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
-                                style="height: 250px;width: 100% !important;"></canvas>
+                                        class="fit text-center">
+                                        میانگین سازمان
+                                    </td>
+                                    <?php foreach ($ResultTemp as $temp) { ?>
+                                        <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
+                                            class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
+                                    <?php } ?>
+                                </tr>
+                            </table>
+                        <?php } ?>
                     </div>
                 </div>
-            </div>
-            <?php if ($area['BreakChart'] == 1) { ?>
-                <div class="break"></div>
-            <?php } ?>
-        <?php } ?>
-    <?php }
+                <?php if ($area['BreakTable'] == 1) { echo '<div class="break"></div>'; } ?>
+                <div class="section d-block">
+                    <div class="col-xs-12 area-chart p-0" style="border: 3px dashed #ccc;margin: 15px 0;">
+                        <div class="col-xs-12 result-chart" style="height: 250px;width: 100% !important;">
+                            <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>" style="height: 250px;width: 100% !important;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <?php if ($area['BreakChart'] == 1) { echo '<div class="break"></div>'; } ?>
+            <?php }
+        }
+    }
 }
 ?>
 
-    <h3 class="area-title"
-        style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">تناسب</h3>
     <div class="section d-block">
         <?php
+        $tanasobIndex = 0;
         /*Print Descriptions*/
         foreach ($TotalResult as $item) {
             if ($item['area']['Tanasob'] == 1) {
                 if (!empty($item['personResult'])) { ?>
+
+                    <?php if($tanasobIndex == 0){ $tanasobIndex+=1; ?>
+                        <h3 class="area-title"  style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">تناسب</h3>
+                    <?php } ?>
+
                     <?php
                     $area = $item['area'];
                     $TableCount = $item['TableCount'];
@@ -398,8 +412,7 @@ foreach ($TotalResult as $item) {
                     $personResultChunk = $item['personResultChunk'];
                     $ResultChunk = $item['ResultChunk'];
                     ?>
-                    <div class="area-content"
-                         style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
+                    <div class="area-content"  style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
                 <?php } ?>
             <?php }
         } ?>
@@ -430,7 +443,6 @@ if ($TableCount > 0) {
                     </div>';
 }
 ?>
-
 
 <?php
 $areaPrinted = false;
@@ -494,26 +506,33 @@ while ($loop < $TableCount - 1) {
 <?php
 foreach ($TotalResult as $item) {
     if ($item['area']['Tanasob'] == 1) {
-        if (!empty($item['personResult'])) { ?>
-            <?php
+        if (!empty($item['personResult'])) {
+            $hasScore = false;
+            foreach ($item['personResult'] as $chunk) {
+                if ($chunk['FATScore'] != null) {
+                    $hasScore = true;
+                }
+            }
             $area = $item['area'];
             $TableCount = $item['TableCount'];
             $areaItemsChunk = $item['areaItemsChunk'];
             $personResultChunk = $item['personResultChunk'];
             $ResultChunk = $item['ResultChunk'];
-            ?>
-            <div class="section d-block">
-                <div class="col-xs-12 area-chart p-0" style="border: 3px dashed #ccc;margin: 15px 0;">
-                    <h3 class="area-title"
-                        style="text-align: center;margin: 25px;"><?php echo $area['AreaTitle']; ?></h3>
-                    <div class="col-xs-12 result-chart" style="height: 320px;width: 100% !important;">
-                        <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
-                                style="height: 320px;width: 100% !important;"></canvas>
+            if ($hasScore) {
+                ?>
+                <div class="section d-block">
+                    <div class="col-xs-12 area-chart p-0" style="border: 3px dashed #ccc;margin: 15px 0;">
+                        <h3 class="area-title"
+                            style="text-align: center;margin: 25px;"><?php echo $area['AreaTitle']; ?></h3>
+                        <div class="col-xs-12 result-chart" style="height: 320px;width: 100% !important;">
+                            <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
+                                    style="height: 320px;width: 100% !important;"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php if ($area['BreakChart'] == 1) { ?>
-                <div class="break"></div>
+                <?php if ($area['BreakChart'] == 1) { ?>
+                    <div class="break"></div>
+                <?php } ?>
             <?php } ?>
         <?php } ?>
     <?php }

@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ReportGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ReportGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Panel/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ModelOrders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ModelOrders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/ability_edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/home/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/persons/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/persons/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/persons/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/persons/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +63,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/wamp64/www/MajlessExam",
+    "last_opened_file_path": "C:/wamp64/www/RadinMy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,6 +113,11 @@
       <workItem from="1703442489453" duration="627000" />
       <workItem from="1703575783723" duration="15742000" />
       <workItem from="1704004682029" duration="2124000" />
+      <workItem from="1704112241511" duration="1882000" />
+      <workItem from="1704180672637" duration="6669000" />
+      <workItem from="1704196973322" duration="238000" />
+      <workItem from="1704207999451" duration="1422000" />
+      <workItem from="1704219885449" duration="605000" />
     </task>
     <servers />
   </component>
