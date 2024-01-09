@@ -180,7 +180,6 @@ $CI =& get_instance();
         }
 
 
-
         .common {
             text-align: right;
         }
@@ -234,6 +233,7 @@ $CI =& get_instance();
                 float: none;
                 width: auto;
             }
+
             .section {
                 page-break-inside: avoid;
                 break-inside: avoid;
@@ -307,9 +307,12 @@ foreach ($TotalResult as $item) {
                     <div class="area-content"
                          style="line-height: 25px;font-size:<?php echo $area['BreakContentFont']; ?>px"><?php echo nl2br($area['AreaContent']); ?></div>
                 </div>
-                <?php if ($area['BreakContent'] == 1) { echo '<div class="break"></div>'; } ?>
+                <?php if ($area['BreakContent'] == 1) {
+                    echo '<div class="break"></div>';
+                } ?>
                 <div class="section d-block">
-                    <div class="col-xs-12 color-guid p-0 pull-right common"  style="text-align: right;margin-bottom:8px;">
+                    <div class="col-xs-12 color-guid p-0 pull-right common"
+                         style="text-align: right;margin-bottom:8px;">
                         <?php if ($item['area']['CommonFeatures'] == 1) { ?>
                             <span style="font-size:<?php echo $area['BreakTableFont']; ?>px"><b class="intro">ویژگی های برجسته</b></span>
                             <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
@@ -317,7 +320,8 @@ foreach ($TotalResult as $item) {
                                     if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
                                         <span style="font-size:<?php echo $area['BreakTableFont']; ?>px">
                                             <b class="title"><?php echo $areaItem['FATTitle']; ?></b>
-                                            <b class="score"  style="display: none;"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
+                                            <b class="score"
+                                               style="display: none;"><?php echo round($MaxScoreArray[$i]['FATScore'], 2) ?></b>
                                         </span>
                                     <?php }
                                 }
@@ -378,21 +382,25 @@ foreach ($TotalResult as $item) {
                         <?php } ?>
                     </div>
                 </div>
-                <?php if ($area['BreakTable'] == 1) { echo '<div class="break"></div>'; } ?>
+                <?php if ($area['BreakTable'] == 1) {
+                    echo '<div class="break"></div>';
+                } ?>
                 <div class="section d-block">
                     <div class="col-xs-12 area-chart p-0" style="border: 3px dashed #ccc;margin: 15px 0;">
                         <div class="col-xs-12 result-chart" style="height: 250px;width: 100% !important;">
-                            <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>" style="height: 250px;width: 100% !important;"></canvas>
+                            <canvas id="ReghbatMinMaxAvgChart-<?php echo $item['uuid']; ?>"
+                                    style="height: 250px;width: 100% !important;"></canvas>
                         </div>
                     </div>
                 </div>
-                <?php if ($area['BreakChart'] == 1) { echo '<div class="break"></div>'; } ?>
+                <?php if ($area['BreakChart'] == 1) {
+                    echo '<div class="break"></div>';
+                } ?>
             <?php }
         }
     }
 }
 ?>
-
     <div class="section d-block">
         <?php
         $tanasobIndex = 0;
@@ -401,8 +409,11 @@ foreach ($TotalResult as $item) {
             if ($item['area']['Tanasob'] == 1) {
                 if (!empty($item['personResult'])) { ?>
 
-                    <?php if($tanasobIndex == 0){ $tanasobIndex+=1; ?>
-                        <h3 class="area-title"  style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">تناسب</h3>
+                    <?php if ($tanasobIndex == 0) {
+                        $tanasobIndex += 1; ?>
+                        <h3 class="area-title"
+                            style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">
+                            تناسب</h3>
                     <?php } ?>
 
                     <?php
@@ -412,7 +423,8 @@ foreach ($TotalResult as $item) {
                     $personResultChunk = $item['personResultChunk'];
                     $ResultChunk = $item['ResultChunk'];
                     ?>
-                    <div class="area-content"  style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
+                    <div class="area-content"
+                         style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
                 <?php } ?>
             <?php }
         } ?>
@@ -428,25 +440,12 @@ foreach ($TotalResult as $item) {
         }
     }
 }
-if ($TableCount > 0) {
-    echo '<div class="col-xs-12 color-guid p-0">
-                        <span class="level-1"></span>
-                        <span class="level-2"></span>
-                        <span class="level-3"></span>
-                        <span class="level-4"></span>
-                        <span class="level-5"></span>
-                        <span class="level-6"></span>
-                        <span class="level-7"></span>
-                        <span class="level-8"></span>
-                        <span class="level-9"></span>
-                        <span class="level-10"></span>
-                    </div>';
-}
 ?>
 
 <?php
 $areaPrinted = false;
 $loop = -1;
+$tablePrintCount = 0;
 while ($loop < $TableCount - 1) {
     $loop += 1;
     $moalefePrinted = false;
@@ -462,6 +461,26 @@ while ($loop < $TableCount - 1) {
                     <div class="break"></div>
                 <?php } ?>
                 <div class="section d-block">
+
+                    <?php
+                    if ($TableCount > 0) {
+                        if ($tablePrintCount == 0) {
+                            $tablePrintCount++;
+                            echo '<div class="col-xs-12 color-guid p-0">
+                        <span class="level-1"></span>
+                        <span class="level-2"></span>
+                        <span class="level-3"></span>
+                        <span class="level-4"></span>
+                        <span class="level-5"></span>
+                        <span class="level-6"></span>
+                        <span class="level-7"></span>
+                        <span class="level-8"></span>
+                        <span class="level-9"></span>
+                        <span class="level-10"></span>
+                    </div>';
+                        }
+                    }
+                    ?>
                     <div class="col-xs-12 result-table p-0">
                         <?php
                         $areaItemsTemp = $areaItemsChunk[$loop];
@@ -501,7 +520,6 @@ while ($loop < $TableCount - 1) {
         <?php }
     }
 } ?>
-
 
 <?php
 foreach ($TotalResult as $item) {
