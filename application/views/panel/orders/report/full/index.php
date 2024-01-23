@@ -403,12 +403,13 @@ foreach ($TotalResult as $item) {
 ?>
     <div class="section d-block">
         <?php
+
         $tanasobIndex = 0;
+        $tanasobHasContentBreak = false;
         /*Print Descriptions*/
         foreach ($TotalResult as $item) {
             if ($item['area']['Tanasob'] == 1) {
                 if (!empty($item['personResult'])) { ?>
-
                     <?php if ($tanasobIndex == 0) {
                         $tanasobIndex += 1; ?>
                         <h3 class="area-title"
@@ -422,6 +423,10 @@ foreach ($TotalResult as $item) {
                     $areaItemsChunk = $item['areaItemsChunk'];
                     $personResultChunk = $item['personResultChunk'];
                     $ResultChunk = $item['ResultChunk'];
+
+                    if ($area['BreakContent'] == 1) {
+                        $tanasobHasContentBreak = true;
+                    }
                     ?>
                     <div class="area-content"
                          style="line-height: 20px;margin-bottom: 10px;"><?php echo nl2br($area['AreaContent']); ?></div>
@@ -429,6 +434,9 @@ foreach ($TotalResult as $item) {
             <?php }
         } ?>
     </div>
+    <?php if ($tanasobHasContentBreak) {
+        echo '<div class="break"></div>';
+    } ?>
 
 
 <?php
@@ -446,6 +454,7 @@ foreach ($TotalResult as $item) {
 $areaPrinted = false;
 $loop = -1;
 $tablePrintCount = 0;
+$tanasobHasTableBreak = false;
 while ($loop < $TableCount - 1) {
     $loop += 1;
     $moalefePrinted = false;
@@ -457,9 +466,7 @@ while ($loop < $TableCount - 1) {
                 $areaItemsChunk = $item['areaItemsChunk'];
                 $personResultChunk = $item['personResultChunk'];
                 $ResultChunk = $item['ResultChunk'];
-                if ($area['BreakContent'] == 1) { ?>
-                    <div class="break"></div>
-                <?php } ?>
+                ?>
                 <div class="section d-block">
 
                     <?php
@@ -500,7 +507,7 @@ while ($loop < $TableCount - 1) {
                             <tr>
                                 <td class="fit text-center" rowspan="2"><?php echo $area['AreaTitle']; ?></td>
                                 <td class="fit text-center">نمره فرد</td>
-                                <?php foreach ($personResultTemp as $temp) { ?>
+                                <?php $hasScore=false; foreach ($personResultTemp as $temp) { if(round($temp['FATScore']) > 0){ $hasScore = true;  }  ?>
                                     <td class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
                                 <?php } ?>
                             </tr>
@@ -510,15 +517,23 @@ while ($loop < $TableCount - 1) {
                                     <td class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
                                 <?php } ?>
                             </tr>
+                            <tr class="<?php  if($hasScore) echo 'true'; else echo 'false'; ?>"></tr>
                         </table>
                     </div>
                 </div>
-                <?php if ($area['BreakTable'] == 1) { ?>
-                    <div class="break"></div>
-                <?php } ?>
+                <?php
+                if ($area['BreakTable'] == 1) {
+                    $tanasobHasTableBreak = true;
+                }
+                ?>
             <?php } ?>
         <?php }
     }
+} ?>
+
+
+<?php if ($tanasobHasTableBreak) {
+    echo '<div class="break"></div>';
 } ?>
 
 <?php

@@ -181,5 +181,10 @@
     $(".break").each(function (){
         $(this).next('.break').remove();
     });
+    $("tr.false").each(function (){
+        $(this).prev('tr').remove();
+        $(this).prev('tr').remove();
+        $(this).remove();
+    });
 
 </script>
