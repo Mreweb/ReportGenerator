@@ -13,6 +13,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td class="fit"><?php echo ($item['Tag']); ?></td>
             <td class="fit">
                 <a target="_blank" class="btn btn-primary" href="<?php echo base_url('Panel/Orders/reportFull/') . $item['NationalCode'].'/'.$item['OrderId']; ?>">مشاهده نتایج</a>
+                <a target="_blank" class="btn btn-primary" href="<?php echo base_url('Panel/Orders/reportFull/') . $item['NationalCode'].'/'.$item['OrderId']; ?>?lang=ar">مشاهده نتایج عربی</a>
             </td>
 
         </tr>

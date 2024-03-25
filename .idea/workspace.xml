@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c1d9f519-c1e9-4c5c-887c-7db99228f0db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/utility/pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/utility/pipe_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/persons/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/panel/orders/report/full/index_js.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/wamp64/www/Kanoon",
+    "last_opened_file_path": "C:/wamp64/www/NicHolding",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,6 +121,8 @@
       <workItem from="1704219885449" duration="605000" />
       <workItem from="1704608982061" duration="4256000" />
       <workItem from="1704784862552" duration="5545000" />
+      <workItem from="1710658070334" duration="7556000" />
+      <workItem from="1710792702026" duration="45000" />
     </task>
     <servers />
   </component>

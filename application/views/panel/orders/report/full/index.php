@@ -1,6 +1,15 @@
 <?php
 $_DIR = base_url('assets/adminpanel/');
 $CI =& get_instance();
+
+$lang='fa';
+if(isset($_GET['lang'])){
+    if($_GET['lang'] == 'ar'){
+        $lang = 'ar';
+    }
+}
+
+
 ?>
     <script src="<?php echo $_DIR; ?>plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/ui/js/chartjs-3.7.1.js') ?>"></script>
@@ -261,18 +270,20 @@ $CI =& get_instance();
     <div class="col-xs-12 d-block">
         <span class="pull-right area-info">
             <i class="material-icons">spellcheck</i>
-            <b>نتایج</b>
+            <b>
+                <?php translate($lang , 'نتایج','نتائج'); ?>
+            </b>
         </span>
         <span class="pull-left info">
                 <strong class="text-danger">
-                     نام و نام خانوادگی:
+                    <?php translate($lang , 'نام و نام خانوادگی','الاسم وإسم العائلة'); ?>:
                     <?php echo $person['FirstName'] . " " . $person['LastName']; ?>
                 </strong>
                 <strong class="text-danger">
                     <?php echo $person['Tag']; ?>
                 </strong>
               <strong class="text-danger dore">
-                  نسخه:
+                  <?php translate($lang , 'نسخه','النسخة'); ?>:
                   <?php echo $order['OrderTitle']; ?>
               </strong>
         </span>
@@ -314,7 +325,9 @@ foreach ($TotalResult as $item) {
                     <div class="col-xs-12 color-guid p-0 pull-right common"
                          style="text-align: right;margin-bottom:8px;">
                         <?php if ($item['area']['CommonFeatures'] == 1) { ?>
-                            <span style="font-size:<?php echo $area['BreakTableFont']; ?>px"><b class="intro">ویژگی های برجسته</b></span>
+                            <span style="font-size:<?php echo $area['BreakTableFont']; ?>px"><b class="intro">
+                                    <?php translate($lang , 'ویژگی های برجسته','مواصفات بارزة'); ?>:
+                                </b></span>
                             <?php for ($i = 0; $i < ($item['area']['CommonFeaturesCount']); $i++) {
                                 foreach ($item['areaItems'] as $areaItem) {
                                     if ($areaItem['FATId'] == $MaxScoreArray[$i]['FATId']) { ?>
@@ -351,7 +364,8 @@ foreach ($TotalResult as $item) {
                                 <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
                                         class="fit text-center">
-                                        مولفه
+
+                                        <?php translate($lang , 'مولفه','المكون'); ?>:
                                     </td>
                                     <?php foreach ($areaItemsTemp as $temp) { ?>
                                         <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
@@ -361,7 +375,8 @@ foreach ($TotalResult as $item) {
                                 <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
                                         class="fit text-center">
-                                        نمره فرد
+
+                                        <?php translate($lang , ' نمره فرد','النتيجة الفردية'); ?>:
                                     </td>
                                     <?php foreach ($personResultTemp as $temp) { ?>
                                         <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
@@ -371,7 +386,8 @@ foreach ($TotalResult as $item) {
                                 <tr>
                                     <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
                                         class="fit text-center">
-                                        میانگین سازمان
+
+                                        <?php translate($lang , ' میانگین سازمان','المعدل المنظمي'); ?>:
                                     </td>
                                     <?php foreach ($ResultTemp as $temp) { ?>
                                         <td style="font-size:<?php echo $area['BreakTableFont']; ?>px"
@@ -414,7 +430,8 @@ foreach ($TotalResult as $item) {
                         $tanasobIndex += 1; ?>
                         <h3 class="area-title"
                             style="color: #0095ff !important;font-size: 16px;display: inline-block;width: 100%;margin: 15px 0;">
-                            تناسب</h3>
+                            تناسب
+                        </h3>
                     <?php } ?>
 
                     <?php
@@ -506,13 +523,13 @@ while ($loop < $TableCount - 1) {
                             </tr>
                             <tr>
                                 <td class="fit text-center" rowspan="2"><?php echo $area['AreaTitle']; ?></td>
-                                <td class="fit text-center">نمره فرد</td>
+                                <td class="fit text-center"><?php translate($lang , ' نمره فرد','النتيجة الفردية'); ?></td>
                                 <?php $hasScore=false; foreach ($personResultTemp as $temp) { if(round($temp['FATScore']) > 0){ $hasScore = true;  }  ?>
                                     <td class="fit text-center <?php echo pipExamResultLevel($temp['FATScore']); ?>"><?php echo round($temp['FATScore'], 2); ?></td>
                                 <?php } ?>
                             </tr>
                             <tr>
-                                <td class="fit text-center">میانگین سازمان</td>
+                                <td class="fit text-center"><?php translate($lang , ' میانگین سازمان','المعدل المنظمي'); ?></td>
                                 <?php foreach ($ResultTemp as $temp) { ?>
                                     <td class="fit text-center   <?php echo pipExamResultLevel($temp['AVG']); ?>"><?php echo round($temp['AVG'], 2); ?></td>
                                 <?php } ?>
